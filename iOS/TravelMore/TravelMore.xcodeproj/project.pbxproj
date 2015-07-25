@@ -231,6 +231,7 @@
 		450841C81B6364E200249E5B /* TravelMore */ = {
 			isa = PBXGroup;
 			children = (
+                B53AE3691B63F4FC00CDC128 /* fri.json */,
 				450842311B64036F00249E5B /* MPGNotification */,
 				B53AE3451B63B55400CDC128 /* Collection */,
 				4508420C1B63A55400249E5B /* MapSceneInitialViewController.h */,
@@ -408,6 +409,8 @@
 				B53AE3471B63B55E00CDC128 /* TGLExposedLayout.m */,
 				B53AE3481B63B55E00CDC128 /* TGLStackedLayout.h */,
 				B53AE3491B63B55E00CDC128 /* TGLStackedLayout.m */,
+				B53AE3661B63F47B00CDC128 /* TGLCollectionViewCell.h */,
+				B53AE3671B63F47B00CDC128 /* TGLCollectionViewCell.m */,
 				B53AE34A1B63B55E00CDC128 /* TGLStackedViewController.h */,
 				B53AE34B1B63B55E00CDC128 /* TGLStackedViewController.m */,
 			);
@@ -495,8 +498,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				B53AE30D1B638A5E00CDC128 /* FBAudienceNetwork.README.txt in Resources */,
-				4508422D1B63F99000249E5B /* fri.json in Resources */,
-				B53AE31B1B63992F00CDC128 /* friends in Resources */,
+				B53AE36E1B63F83200CDC128 /* images (3).jpeg in Resources */,
+				B53AE3701B63FEB600CDC128 /* pin.brightred.png in Resources */,
 				4508422B1B63E9DD00249E5B /* DrawingPin1_Blue.png in Resources */,
 				B5340EAF1B6369DB00A24775 /* Login.storyboard in Resources */,
 				B53AE3631B63E02500CDC128 /* 3-5-stars.png in Resources */,
