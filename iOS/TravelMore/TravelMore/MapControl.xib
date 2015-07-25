@@ -75,6 +75,10 @@
                     <exclude reference="ClO-pd-sZk"/>
                 </mask>
             </variation>
+            <connections>
+                <outlet property="activityIndicator" destination="1Bv-0I-Yst" id="HAj-a8-USL"/>
+                <outlet property="infoLabel" destination="Y1k-x5-87Y" id="JL5-Np-Zbu"/>
+            </connections>
             <point key="canvasLocation" x="187" y="234"/>
         </view>
     </objects>

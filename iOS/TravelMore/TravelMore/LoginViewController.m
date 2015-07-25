@@ -14,6 +14,10 @@
 #import "DeformationButton.h"
 #import "Constant.h"
 #import "MapSceneInitialViewController.h"
+#import "MenuViewController.h"
+#import "Constants.h"
+
+
 
 @interface LoginViewController () <UITextFieldDelegate>
 @property (weak, nonatomic) IBOutlet UIImageView *myImage1;
@@ -47,6 +51,7 @@
     [_logInButton.forDisplayButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
     [_logInButton.forDisplayButton setTitleEdgeInsets:UIEdgeInsetsMake(0, 6, 0, 0)];
     [_logInButton.forDisplayButton setImage:[UIImage imageNamed:@"微博logo.png"] forState:UIControlStateNormal];
+    
     
     [_logInButton addTarget:self action:@selector(facebookAction:) forControlEvents:UIControlEventTouchUpInside];
 }
@@ -112,9 +117,9 @@
 }
 
 -(void)showHome {
-    UIStoryboard *mainStoryboard = [UIStoryboard storyboardWithName:@"main" bundle:[NSBundle mainBundle]];
-    MapSceneInitialViewController *mapCntrl =  (MapSceneInitialViewController*)mainStoryboard.instantiateInitialViewController;
-    [self presentViewController:mapCntrl animated:true completion:nil];
+    MenuViewController *menCntrl = [[MenuViewController  alloc ]initWithNibName:@"MenuViewController" bundle:nil];
+
+    [self presentViewController:menCntrl animated:true completion:nil];
     
     
     

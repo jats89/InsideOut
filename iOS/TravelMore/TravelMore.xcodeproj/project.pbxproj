@@ -19,6 +19,14 @@
 		4508420B1B63A54900249E5B /* MapLocations.json in Resources */ = {isa = PBXBuildFile; fileRef = 4508420A1B63A54900249E5B /* MapLocations.json */; };
 		4508420E1B63A55400249E5B /* MapSceneInitialViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4508420D1B63A55400249E5B /* MapSceneInitialViewController.m */; };
 		450842111B63A5A900249E5B /* PlaceInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 450842101B63A5A900249E5B /* PlaceInfo.m */; };
+		450842161B63AEF100249E5B /* KYCircleMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = 450842151B63AEF100249E5B /* KYCircleMenu.m */; };
+		450842191B63AFA400249E5B /* MenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 450842181B63AFA400249E5B /* MenuViewController.m */; };
+		4508421C1B63AFE700249E5B /* Constants.m in Sources */ = {isa = PBXBuildFile; fileRef = 4508421B1B63AFE700249E5B /* Constants.m */; };
+		4508421E1B63B52600249E5B /* MenuViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4508421D1B63B52600249E5B /* MenuViewController.xib */; };
+		450842241B63D12400249E5B /* TRCustomAnnotationView.m in Sources */ = {isa = PBXBuildFile; fileRef = 450842231B63D12400249E5B /* TRCustomAnnotationView.m */; };
+		450842261B63D14200249E5B /* TRCustomAnnotationView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 450842251B63D14200249E5B /* TRCustomAnnotationView.xib */; };
+		450842291B63E5BA00249E5B /* TRMCustomAnnotationView.m in Sources */ = {isa = PBXBuildFile; fileRef = 450842281B63E5BA00249E5B /* TRMCustomAnnotationView.m */; };
+		4508422B1B63E9DD00249E5B /* DrawingPin1_Blue.png in Resources */ = {isa = PBXBuildFile; fileRef = 4508422A1B63E9DD00249E5B /* DrawingPin1_Blue.png */; };
 		B5340EAF1B6369DB00A24775 /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B5340EAE1B6369DB00A24775 /* Login.storyboard */; };
 		B5340EB31B636A5700A24775 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B5340EB21B636A5700A24775 /* LoginViewController.m */; };
 		B5340EBB1B6373AE00A24775 /* NSObject+Helper.m in Sources */ = {isa = PBXBuildFile; fileRef = B5340EBA1B6373AE00A24775 /* NSObject+Helper.m */; };
@@ -75,6 +83,19 @@
 		4508420D1B63A55400249E5B /* MapSceneInitialViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapSceneInitialViewController.m; sourceTree = "<group>"; };
 		4508420F1B63A5A900249E5B /* PlaceInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlaceInfo.h; sourceTree = "<group>"; };
 		450842101B63A5A900249E5B /* PlaceInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlaceInfo.m; sourceTree = "<group>"; };
+		450842141B63AEF100249E5B /* KYCircleMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KYCircleMenu.h; sourceTree = "<group>"; };
+		450842151B63AEF100249E5B /* KYCircleMenu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KYCircleMenu.m; sourceTree = "<group>"; };
+		450842171B63AFA400249E5B /* MenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuViewController.h; sourceTree = "<group>"; };
+		450842181B63AFA400249E5B /* MenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MenuViewController.m; sourceTree = "<group>"; };
+		4508421A1B63AFE700249E5B /* Constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
+		4508421B1B63AFE700249E5B /* Constants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Constants.m; sourceTree = "<group>"; };
+		4508421D1B63B52600249E5B /* MenuViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MenuViewController.xib; sourceTree = "<group>"; };
+		450842221B63D12400249E5B /* TRCustomAnnotationView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TRCustomAnnotationView.h; sourceTree = "<group>"; };
+		450842231B63D12400249E5B /* TRCustomAnnotationView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TRCustomAnnotationView.m; sourceTree = "<group>"; };
+		450842251B63D14200249E5B /* TRCustomAnnotationView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TRCustomAnnotationView.xib; sourceTree = "<group>"; };
+		450842271B63E5BA00249E5B /* TRMCustomAnnotationView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TRMCustomAnnotationView.h; sourceTree = "<group>"; };
+		450842281B63E5BA00249E5B /* TRMCustomAnnotationView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TRMCustomAnnotationView.m; sourceTree = "<group>"; };
+		4508422A1B63E9DD00249E5B /* DrawingPin1_Blue.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = DrawingPin1_Blue.png; sourceTree = "<group>"; };
 		B5340EAE1B6369DB00A24775 /* Login.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Login.storyboard; sourceTree = "<group>"; };
 		B5340EB11B636A5700A24775 /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
 		B5340EB21B636A5700A24775 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
@@ -141,6 +162,12 @@
 		450841BD1B6364E200249E5B = {
 			isa = PBXGroup;
 			children = (
+				450842271B63E5BA00249E5B /* TRMCustomAnnotationView.h */,
+				450842281B63E5BA00249E5B /* TRMCustomAnnotationView.m */,
+				450842221B63D12400249E5B /* TRCustomAnnotationView.h */,
+				450842231B63D12400249E5B /* TRCustomAnnotationView.m */,
+				450842251B63D14200249E5B /* TRCustomAnnotationView.xib */,
+				450842131B63AEDB00249E5B /* Menu */,
 				4508420F1B63A5A900249E5B /* PlaceInfo.h */,
 				450842101B63A5A900249E5B /* PlaceInfo.m */,
 				450841C81B6364E200249E5B /* TravelMore */,
@@ -174,6 +201,7 @@
 				450841D01B6364E200249E5B /* ViewController.h */,
 				450841D11B6364E200249E5B /* ViewController.m */,
 				450841D31B6364E200249E5B /* Main.storyboard */,
+				4508422A1B63E9DD00249E5B /* DrawingPin1_Blue.png */,
 				450841D61B6364E200249E5B /* Images.xcassets */,
 				450841D81B6364E200249E5B /* LaunchScreen.xib */,
 				450841C91B6364E200249E5B /* Supporting Files */,
@@ -220,6 +248,20 @@
 				450842071B63A53E00249E5B /* MapControl.xib */,
 			);
 			name = CustomViews;
+			sourceTree = "<group>";
+		};
+		450842131B63AEDB00249E5B /* Menu */ = {
+			isa = PBXGroup;
+			children = (
+				450842141B63AEF100249E5B /* KYCircleMenu.h */,
+				450842151B63AEF100249E5B /* KYCircleMenu.m */,
+				450842171B63AFA400249E5B /* MenuViewController.h */,
+				450842181B63AFA400249E5B /* MenuViewController.m */,
+				4508421D1B63B52600249E5B /* MenuViewController.xib */,
+				4508421A1B63AFE700249E5B /* Constants.h */,
+				4508421B1B63AFE700249E5B /* Constants.m */,
+			);
+			name = Menu;
 			sourceTree = "<group>";
 		};
 		B5312D661B63836700198D94 /* Recovered References */ = {
@@ -375,13 +417,16 @@
 			files = (
 				B53AE30D1B638A5E00CDC128 /* FBAudienceNetwork.README.txt in Resources */,
 				B53AE31B1B63992F00CDC128 /* friends in Resources */,
+				4508422B1B63E9DD00249E5B /* DrawingPin1_Blue.png in Resources */,
 				B5340EAF1B6369DB00A24775 /* Login.storyboard in Resources */,
 				B53AE30B1B638A5E00CDC128 /* FacebookSDKStrings.bundle in Resources */,
 				450841D51B6364E200249E5B /* Main.storyboard in Resources */,
 				450841DA1B6364E200249E5B /* LaunchScreen.xib in Resources */,
 				450842091B63A53E00249E5B /* MapControl.xib in Resources */,
+				4508421E1B63B52600249E5B /* MenuViewController.xib in Resources */,
 				4508420B1B63A54900249E5B /* MapLocations.json in Resources */,
 				450841D71B6364E200249E5B /* Images.xcassets in Resources */,
+				450842261B63D14200249E5B /* TRCustomAnnotationView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -400,20 +445,25 @@
 			buildActionMask = 2147483647;
 			files = (
 				B5340EB31B636A5700A24775 /* LoginViewController.m in Sources */,
+				450842191B63AFA400249E5B /* MenuViewController.m in Sources */,
 				4508420E1B63A55400249E5B /* MapSceneInitialViewController.m in Sources */,
 				B5340EBB1B6373AE00A24775 /* NSObject+Helper.m in Sources */,
 				B5340EBE1B6373F100A24775 /* UIView+Helper.m in Sources */,
+				450842161B63AEF100249E5B /* KYCircleMenu.m in Sources */,
 				450841D21B6364E200249E5B /* ViewController.m in Sources */,
 				B53AE2FC1B63854D00CDC128 /* JVFloatLabeledTextField.m in Sources */,
 				450842111B63A5A900249E5B /* PlaceInfo.m in Sources */,
+				450842241B63D12400249E5B /* TRCustomAnnotationView.m in Sources */,
 				B5340EC11B63745200A24775 /* UIColor+Helper.m in Sources */,
 				B53AE3191B63976B00CDC128 /* DeformationButton.m in Sources */,
 				450842081B63A53E00249E5B /* MapControl.m in Sources */,
 				B53AE2FD1B63854D00CDC128 /* JVFloatLabeledTextView.m in Sources */,
 				B53AE3181B63976B00CDC128 /* MMMaterialDesignSpinner.m in Sources */,
 				450841CF1B6364E200249E5B /* AppDelegate.m in Sources */,
+				450842291B63E5BA00249E5B /* TRMCustomAnnotationView.m in Sources */,
 				B53AE2FE1B63854D00CDC128 /* NSString+TextDirectionality.m in Sources */,
 				450841CC1B6364E200249E5B /* main.m in Sources */,
+				4508421C1B63AFE700249E5B /* Constants.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

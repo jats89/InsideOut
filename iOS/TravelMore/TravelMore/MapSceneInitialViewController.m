@@ -10,6 +10,9 @@
 #import <MapKit/MapKit.h>
 #import "PlaceInfo.h"
 #import "MapControl.h"
+#import "TRCustomAnnotationView.h"
+#import "TRMCustomAnnotationView.h"
+
 
 
 @interface MapSceneInitialViewController ()<MKMapViewDelegate>  {
@@ -31,6 +34,7 @@
     [self readSurvyes];
     [self fetchAdressInfo:_mapArray];
     [self setPlaces];
+    [self.mapView showsUserLocation];
     // Do any additional setup after loading the view.
 }
 
@@ -42,40 +46,15 @@
     NSString *pinIdentifier = @"pin";
     
     
-    MKPinAnnotationView *annotationView = (MKPinAnnotationView *) [mapView dequeueReusableAnnotationViewWithIdentifier:pinIdentifier];
+    TRMCustomAnnotationView *annotationView = (TRMCustomAnnotationView *) [mapView dequeueReusableAnnotationViewWithIdentifier:pinIdentifier];
     
     if(annotationView == nil)
-        annotationView = [[MKPinAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:pinIdentifier];
+        annotationView = [[TRMCustomAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:pinIdentifier];
     else
         annotationView.annotation = annotation;
-    
-    MapControl *customLeftBtn =   [[[NSBundle mainBundle] loadNibNamed:@"MapControl"
-                                                                  owner:self
-                                                                options:nil]
-                                    objectAtIndex:0];
-    // Never had this line fire...
-    
-    annotationView.canShowCallout = YES;
-    annotationView.animatesDrop = YES;
-    annotationView.enabled = YES;
+    annotationView.image = [UIImage imageNamed:@"DrawingPin1_Blue"];
     annotationView.calloutOffset = CGPointMake(-5, -5);
     
-    customLeftBtn.backgroundColor = [UIColor blueColor];
-//    [customLeftBtn setTitle:@"Pick" forState:UIControlStateNormal];
-    customLeftBtn.tintColor = [UIColor whiteColor];
-//    customLeftBtn.titleEdgeInsets = UIEdgeInsetsMake(0, 5, 0, 5);
-    customLeftBtn.frame = CGRectMake(0, 0, 82, 156);
-    CGRect frame = customLeftBtn.frame;
-    frame.size.height = 156;
-    annotationView.frame = frame;
-    annotationView.leftCalloutAccessoryView = customLeftBtn;
-    MapControl *customRightBtn =   [[[NSBundle mainBundle] loadNibNamed:@"MapControl"
-                                                                 owner:self
-                                                               options:nil]
-                                   objectAtIndex:0];
-      customRightBtn.frame = CGRectMake(0, 0, 90, 100);
-
-    annotationView.rightCalloutAccessoryView = customRightBtn;
     return annotationView;
 }
 
@@ -103,6 +82,49 @@
 
 
 - (void)mapView:(MKMapView *)mapView didDeselectAnnotationView:(MKAnnotationView *)view{
+//    TRCustomAnnotationView *customView = [[[NSBundle mainBundle] loadNibNamed:@"TRCustomAnnotationView"
+//                                                                        owner:self
+//                                                                      options:nil]
+//                                          objectAtIndex:0];
+//    customView.frame = CGRectMake(0, 0, 300, 100);
+//    customView.center = CGPointMake(view.bounds.size.width*0.5f, self.view.bounds.size.height*0.5f);
+
+    for (UIView *subView in view.subviews) {
+        if ([subView isKindOfClass:[TRCustomAnnotationView class]]) {
+            subView.hidden = true;
+        }
+    }
+    
+}
+- (void)mapView:(MKMapView *)mapView didSelectAnnotationView:(MKAnnotationView *)view{
+//    for (UIView *subView in view.subviews) {
+//        if ([subView isKindOfClass:[TRCustomAnnotationView class]]) {
+//            subView.hidden = false;
+//        }
+//    }
+    TRCustomAnnotationView *customView = [[[NSBundle mainBundle] loadNibNamed:@"TRCustomAnnotationView"
+                                                                        owner:self
+                                                                      options:nil]
+                                          objectAtIndex:0];
+    customView.frame = CGRectMake(0, 0, 300, 60);
+    customView.layer.cornerRadius = 10.0f;
+    customView.layer.masksToBounds = true;
+    customView.titlelabel.text = [view.annotation title];
+    customView.subTitlelabel.text = [view.annotation subtitle];
+    [customView.bookNowButton addTarget:self action:@selector(bookNowButtonClicked:) forControlEvents:UIControlEventTouchUpInside];
+    [customView.friendsButton addTarget:self action:@selector(friendsButtonClicked:) forControlEvents:UIControlEventTouchUpInside];
+
+
+    [view addSubview:customView];
+
+    customView.center = CGPointMake(view.bounds.size.width*0.5f, -view.bounds.size.height*0.8f);
+    
+}
+-(void)bookNowButtonClicked:(id)sender {
+    
+}
+
+-(void)friendsButtonClicked:(id)sender {
     
 }
 -(void)readSurvyes {
