@@ -160,7 +160,7 @@
 }
 
 - (int)randomNumber {
-    return rand() % (5 - 1) + 1; //create the random number.
+    return rand() % (5 - 2) + 2; //create the random number.
 }
 
 #pragma mark - CollectionViewDataSource protocol
@@ -170,9 +170,13 @@
     return self.cards.count;
 }
 
+-(IBAction)dismiss:(id)sender   {
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
+
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     
-    TGLCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"CardCell" forIndexPath:indexPath];
+    TGLCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"Cell" forIndexPath:indexPath];
     NSDictionary *card = self.cards[indexPath.item];
     
     cell.title = card[@"name"];

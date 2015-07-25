@@ -220,7 +220,7 @@
 
 
 -(void)friendsButtonClicked:(id)sender {
-    
+    [self performSegueWithIdentifier:@"friend" sender:nil];
 }
 -(void)readSurvyes {
     NSString *path = [[NSBundle mainBundle]pathForResource:@"MapLocations" ofType:@"json"];

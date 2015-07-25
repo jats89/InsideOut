@@ -48,7 +48,6 @@
 		B53AE3111B638A5E00CDC128 /* FBSDKShareKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B53AE3091B638A5E00CDC128 /* FBSDKShareKit.framework */; };
 		B53AE3181B63976B00CDC128 /* MMMaterialDesignSpinner.m in Sources */ = {isa = PBXBuildFile; fileRef = B53AE3151B63976B00CDC128 /* MMMaterialDesignSpinner.m */; };
 		B53AE3191B63976B00CDC128 /* DeformationButton.m in Sources */ = {isa = PBXBuildFile; fileRef = B53AE3171B63976B00CDC128 /* DeformationButton.m */; };
-		B53AE31B1B63992F00CDC128 /* friends in Resources */ = {isa = PBXBuildFile; fileRef = B53AE31A1B63992F00CDC128 /* friends */; };
 		B53AE34C1B63B55E00CDC128 /* TGLExposedLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = B53AE3471B63B55E00CDC128 /* TGLExposedLayout.m */; };
 		B53AE34D1B63B55E00CDC128 /* TGLStackedLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = B53AE3491B63B55E00CDC128 /* TGLStackedLayout.m */; };
 		B53AE34E1B63B55E00CDC128 /* TGLStackedViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B53AE34B1B63B55E00CDC128 /* TGLStackedViewController.m */; };
@@ -58,6 +57,11 @@
 		B53AE35F1B63D18900CDC128 /* UIViewController+Helper.m in Sources */ = {isa = PBXBuildFile; fileRef = B53AE35E1B63D18900CDC128 /* UIViewController+Helper.m */; };
 		B53AE3631B63E02500CDC128 /* 3-5-stars.png in Resources */ = {isa = PBXBuildFile; fileRef = B53AE3621B63E02500CDC128 /* 3-5-stars.png */; };
 		B53AE3651B63E07E00CDC128 /* white_star_u2606_icon_256x256.png in Resources */ = {isa = PBXBuildFile; fileRef = B53AE3641B63E07E00CDC128 /* white_star_u2606_icon_256x256.png */; };
+		B53AE3681B63F47B00CDC128 /* TGLCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B53AE3671B63F47B00CDC128 /* TGLCollectionViewCell.m */; };
+		B53AE36A1B63F4FC00CDC128 /* fri.json in Resources */ = {isa = PBXBuildFile; fileRef = B53AE3691B63F4FC00CDC128 /* fri.json */; };
+		B53AE36C1B63F6B100CDC128 /* Screen Shot 2015-07-25 at 10.22.39 pm.png in Resources */ = {isa = PBXBuildFile; fileRef = B53AE36B1B63F6B100CDC128 /* Screen Shot 2015-07-25 at 10.22.39 pm.png */; };
+		B53AE36E1B63F83200CDC128 /* images (3).jpeg in Resources */ = {isa = PBXBuildFile; fileRef = B53AE36D1B63F83200CDC128 /* images (3).jpeg */; };
+		B53AE3701B63FEB600CDC128 /* pin.brightred.png in Resources */ = {isa = PBXBuildFile; fileRef = B53AE36F1B63FEB600CDC128 /* pin.brightred.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -140,7 +144,6 @@
 		B53AE3151B63976B00CDC128 /* MMMaterialDesignSpinner.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMMaterialDesignSpinner.m; sourceTree = "<group>"; };
 		B53AE3161B63976B00CDC128 /* DeformationButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DeformationButton.h; sourceTree = "<group>"; };
 		B53AE3171B63976B00CDC128 /* DeformationButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DeformationButton.m; sourceTree = "<group>"; };
-		B53AE31A1B63992F00CDC128 /* friends */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = friends; sourceTree = "<group>"; };
 		B53AE31D1B639DA800CDC128 /* Constant.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Constant.h; sourceTree = "<group>"; };
 		B53AE3461B63B55E00CDC128 /* TGLExposedLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TGLExposedLayout.h; sourceTree = "<group>"; };
 		B53AE3471B63B55E00CDC128 /* TGLExposedLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TGLExposedLayout.m; sourceTree = "<group>"; };
@@ -157,6 +160,12 @@
 		B53AE35E1B63D18900CDC128 /* UIViewController+Helper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+Helper.m"; sourceTree = "<group>"; };
 		B53AE3621B63E02500CDC128 /* 3-5-stars.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "3-5-stars.png"; sourceTree = "<group>"; };
 		B53AE3641B63E07E00CDC128 /* white_star_u2606_icon_256x256.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = white_star_u2606_icon_256x256.png; sourceTree = "<group>"; };
+		B53AE3661B63F47B00CDC128 /* TGLCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TGLCollectionViewCell.h; sourceTree = "<group>"; };
+		B53AE3671B63F47B00CDC128 /* TGLCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TGLCollectionViewCell.m; sourceTree = "<group>"; };
+		B53AE3691B63F4FC00CDC128 /* fri.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = fri.json; sourceTree = "<group>"; };
+		B53AE36B1B63F6B100CDC128 /* Screen Shot 2015-07-25 at 10.22.39 pm.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Screen Shot 2015-07-25 at 10.22.39 pm.png"; sourceTree = "<group>"; };
+		B53AE36D1B63F83200CDC128 /* images (3).jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "images (3).jpeg"; sourceTree = "<group>"; };
+		B53AE36F1B63FEB600CDC128 /* pin.brightred.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pin.brightred.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -234,15 +243,16 @@
 				450841CE1B6364E200249E5B /* AppDelegate.m */,
 				450841D01B6364E200249E5B /* ViewController.h */,
 				450841D11B6364E200249E5B /* ViewController.m */,
+				B53AE36B1B63F6B100CDC128 /* Screen Shot 2015-07-25 at 10.22.39 pm.png */,
 				450841D31B6364E200249E5B /* Main.storyboard */,
 				4508422A1B63E9DD00249E5B /* DrawingPin1_Blue.png */,
 				450841D61B6364E200249E5B /* Images.xcassets */,
+				B53AE36D1B63F83200CDC128 /* images (3).jpeg */,
 				450841D81B6364E200249E5B /* LaunchScreen.xib */,
 				450841C91B6364E200249E5B /* Supporting Files */,
 				B5340EAE1B6369DB00A24775 /* Login.storyboard */,
 				B5340EB11B636A5700A24775 /* LoginViewController.h */,
 				B5340EB21B636A5700A24775 /* LoginViewController.m */,
-				B53AE31A1B63992F00CDC128 /* friends */,
 				B53AE31D1B639DA800CDC128 /* Constant.h */,
 			);
 			path = TravelMore;
@@ -381,6 +391,7 @@
 			isa = PBXGroup;
 			children = (
 				B53AE3141B63976B00CDC128 /* MMMaterialDesignSpinner.h */,
+				B53AE36F1B63FEB600CDC128 /* pin.brightred.png */,
 				B53AE3151B63976B00CDC128 /* MMMaterialDesignSpinner.m */,
 				B53AE3161B63976B00CDC128 /* DeformationButton.h */,
 				B53AE3171B63976B00CDC128 /* DeformationButton.m */,
@@ -493,6 +504,8 @@
 				B53AE30B1B638A5E00CDC128 /* FacebookSDKStrings.bundle in Resources */,
 				450841D51B6364E200249E5B /* Main.storyboard in Resources */,
 				450841DA1B6364E200249E5B /* LaunchScreen.xib in Resources */,
+				B53AE36A1B63F4FC00CDC128 /* fri.json in Resources */,
+				B53AE36C1B63F6B100CDC128 /* Screen Shot 2015-07-25 at 10.22.39 pm.png in Resources */,
 				450842091B63A53E00249E5B /* MapControl.xib in Resources */,
 				4508421E1B63B52600249E5B /* MenuViewController.xib in Resources */,
 				4508420B1B63A54900249E5B /* MapLocations.json in Resources */,

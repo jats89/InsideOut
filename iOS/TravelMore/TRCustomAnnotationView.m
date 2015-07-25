@@ -14,6 +14,8 @@
 // An empty implementation adversely affects performance during animation.
 - (void)drawRect:(CGRect)rect {
     // Drawing code
+    _iconImage.layer.cornerRadius = 20.0;
+    _iconImage.layer.masksToBounds= YES;
 }
 */
 -(void)awakeFromNib {

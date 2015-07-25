@@ -53,7 +53,11 @@
     [_logInButton.forDisplayButton setImage:[UIImage imageNamed:@"微博logo.png"] forState:UIControlStateNormal];
     
     
-    [_logInButton addTarget:self action:@selector(facebookAction:) forControlEvents:UIControlEventTouchUpInside];
+    [_logInButton addTarget:self action:@selector(responder) forControlEvents:UIControlEventTouchUpInside];
+}
+
+-(void)responder    {
+    [self performSelector:@selector(facebookAction:) withObject:nil afterDelay:Delay];
 }
 
 - (void)viewWillDisappear:(BOOL)animated    {
@@ -103,24 +107,21 @@
 }
 
 -(IBAction)facebookAction:(id)sender    {
-//    [FBSDKAccessToken setCurrentAccessToken:nil];
-//    FBSDKLoginManager *login = [[FBSDKLoginManager alloc] init];
-//    [login logInWithReadPermissions:@[@"email",@"user_friends"] handler:^(FBSDKLoginManagerLoginResult *result, NSError *error) {
-//        if (error) {
-//            NSLog(@"Error");
-//        } else if (result.isCancelled) {
-//            NSLog(@"Cancel Pressed");
-//        } else {
-            [self showHome];
-//        }
-//    }];
+    [FBSDKAccessToken setCurrentAccessToken:nil];
+    FBSDKLoginManager *login = [[FBSDKLoginManager alloc] init];
+    [login logInWithReadPermissions:@[@"email",@"user_friends"] handler:^(FBSDKLoginManagerLoginResult *result, NSError *error) {
+        if (error) {
+            NSLog(@"Error");
+        } else if (result.isCancelled) {
+            NSLog(@"Cancel Pressed");
+        } else {
+            [self performSelector:@selector(showHome) withObject:nil afterDelay:Delay];
+        }
+    }];
 }
 
 -(void)showHome {
-    MenuViewController *menCntrl = [[MenuViewController  alloc ]initWithNibName:@"MenuViewController" bundle:nil];
-
-    [self presentViewController:menCntrl animated:true completion:nil];
-    
+    [self performSegueWithIdentifier:@"ModalExposed" sender:nil];
     
 
     }
