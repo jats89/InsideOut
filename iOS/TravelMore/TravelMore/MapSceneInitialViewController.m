@@ -12,16 +12,22 @@
 #import "MapControl.h"
 #import "TRCustomAnnotationView.h"
 #import "TRMCustomAnnotationView.h"
+#import "MPGNotification.h"
+
 
 
 
 @interface MapSceneInitialViewController ()<MKMapViewDelegate>  {
     UIView *selectedAccesoryView;
+    MPGNotification *notification;
+    
 }
 @property (nonatomic, weak)IBOutlet MKMapView *mapView;
 @property (nonatomic, strong) NSArray *mapArray;
-
+@property (nonatomic, retain) MKPolyline *routeLine; //your line
+@property (nonatomic, retain) MKPolylineView *routeLineView;
 @property (nonatomic, strong) NSMutableArray *placeList;
+@property (nonatomic, strong) NSTimer *notifTimer;
 
 @end
 
@@ -31,11 +37,63 @@
     
     [super viewDidLoad];
     _placeList = [[NSMutableArray alloc]init];
+    
     [self readSurvyes];
     [self fetchAdressInfo:_mapArray];
     [self setPlaces];
     [self.mapView showsUserLocation];
+    
+    self.notifTimer = [NSTimer scheduledTimerWithTimeInterval:5 target:self selector:@selector(notifTimerInvoked:) userInfo:nil repeats:false];
     // Do any additional setup after loading the view.
+}
+-(void)notifTimerInvoked:(NSTimer *)timer  {
+    NSArray *buttonArray;
+    UIImage *icon;
+    NSString *subtitle;
+    
+    buttonArray = [NSArray arrayWithObjects:@"Reply",@"Later", nil];
+    
+    icon = [UIImage imageNamed:@"ChatIcon"];
+    
+    subtitle = @"Did you hear my new collab on Beatport? It's on #1. It's getting incredible reviews as well. Let me know what you think of it!";
+    notification = [MPGNotification notificationWithTitle:@"Joey Dale" subtitle:subtitle backgroundColor:[UIColor blueColor] iconImage:icon];
+    [notification setButtonConfiguration:buttonArray.count withButtonTitles:buttonArray];
+    notification.duration = 2.0;
+    notification.swipeToDismissEnabled = NO;
+        __weak typeof(self) weakSelf = self;
+    [notification setDismissHandler:^(MPGNotification *notification) {
+        //        [weakSelf.showNotificationButton setEnabled:YES];
+    }];
+    
+    [notification setButtonHandler:^(MPGNotification *notification, NSInteger buttonIndex) {
+        NSLog(@"buttonIndex : %ld", (long)buttonIndex);
+        //        [weakSelf.showNotificationButton setEnabled:YES];
+    }];
+    
+    //    if (!([_colorChooser selectedSegmentIndex] == 3 || [_colorChooser selectedSegmentIndex] == 1)) {
+    [notification setTitleColor:[UIColor whiteColor]];
+    [notification setSubtitleColor:[UIColor whiteColor]];
+    //    }
+    //
+    //    switch ([_animationType selectedSegmentIndex]) {
+    //        case 0:
+    //            [notification setAnimationType:MPGNotificationAnimationTypeLinear];
+    //            break;
+    //
+    //        case 1:
+    //            [notification setAnimationType:MPGNotificationAnimationTypeDrop];
+    //            break;
+    //
+    //        case 2:
+    [notification setAnimationType:MPGNotificationAnimationTypeSnap];
+    //            break;
+    //
+    //        default:
+    //            break;
+    //    }
+    //
+    [notification show];
+    //    [_showNotificationButton setEnabled:NO];
 }
 
 - (MKAnnotationView *)mapView:(MKMapView *)mapView
@@ -56,13 +114,14 @@
     return annotationView;
 }
 
+
 -(void)tapped   {
     NSLog(@"friend tapped");
 }
 
 -(void)tappedMap    {
     NSLog(@"Pick now tapped ");
-//    [UIViewController sendNotificationWithTitle:@"ad" msg:@""];
+    //    [UIViewController sendNotificationWithTitle:@"ad" msg:@""];
 }
 
 - (void)mapView:(MKMapView *)mv annotationView:(MKAnnotationView *)pin calloutAccessoryControlTapped:(UIControl *)control {
@@ -89,13 +148,13 @@
 
 
 - (void)mapView:(MKMapView *)mapView didDeselectAnnotationView:(MKAnnotationView *)view{
-//    TRCustomAnnotationView *customView = [[[NSBundle mainBundle] loadNibNamed:@"TRCustomAnnotationView"
-//                                                                        owner:self
-//                                                                      options:nil]
-//                                          objectAtIndex:0];
-//    customView.frame = CGRectMake(0, 0, 300, 100);
-//    customView.center = CGPointMake(view.bounds.size.width*0.5f, self.view.bounds.size.height*0.5f);
-
+    //    TRCustomAnnotationView *customView = [[[NSBundle mainBundle] loadNibNamed:@"TRCustomAnnotationView"
+    //                                                                        owner:self
+    //                                                                      options:nil]
+    //                                          objectAtIndex:0];
+    //    customView.frame = CGRectMake(0, 0, 300, 100);
+    //    customView.center = CGPointMake(view.bounds.size.width*0.5f, self.view.bounds.size.height*0.5f);
+    
     for (UIView *subView in view.subviews) {
         if ([subView isKindOfClass:[TRCustomAnnotationView class]]) {
             subView.hidden = true;
@@ -104,11 +163,11 @@
     
 }
 - (void)mapView:(MKMapView *)mapView didSelectAnnotationView:(MKAnnotationView *)view{
-//    for (UIView *subView in view.subviews) {
-//        if ([subView isKindOfClass:[TRCustomAnnotationView class]]) {
-//            subView.hidden = false;
-//        }
-//    }
+    //    for (UIView *subView in view.subviews) {
+    //        if ([subView isKindOfClass:[TRCustomAnnotationView class]]) {
+    //            subView.hidden = false;
+    //        }
+    //    }
     TRCustomAnnotationView *customView = [[[NSBundle mainBundle] loadNibNamed:@"TRCustomAnnotationView"
                                                                         owner:self
                                                                       options:nil]
@@ -118,18 +177,47 @@
     customView.layer.masksToBounds = true;
     customView.titlelabel.text = [view.annotation title];
     customView.subTitlelabel.text = [view.annotation subtitle];
-    [customView.bookNowButton addTarget:self action:@selector(bookNowButtonClicked:) forControlEvents:UIControlEventTouchUpInside];
+    customView.coordinate = [view.annotation coordinate];
+    customView.bookBlock = ^(CLLocationCoordinate2D coordinate){
+        
+        MKDirectionsRequest *request = [[MKDirectionsRequest alloc] init];
+        MKPlacemark *placemark1 = [[MKPlacemark alloc] initWithCoordinate:CLLocationCoordinate2DMake(coordinate.latitude, coordinate.longitude) addressDictionary:nil];
+        [request setSource:[[MKMapItem alloc] initWithPlacemark:placemark1]];
+        
+        MKPlacemark *placemark = [[MKPlacemark alloc] initWithCoordinate:CLLocationCoordinate2DMake(37.3369444, -121.8894459) addressDictionary:nil];
+        request.destination = [[MKMapItem alloc] initWithPlacemark:placemark];
+        
+        
+        // [request setDestination:myMapItem];
+        [request setTransportType:MKDirectionsTransportTypeAutomobile]; // This can be limited to automobile and walking directions.
+        [request setRequestsAlternateRoutes:YES]; // Gives you several route options.
+        MKDirections *directions = [[MKDirections alloc] initWithRequest:request];
+        [directions calculateDirectionsWithCompletionHandler:^(MKDirectionsResponse *response, NSError *error) {
+            if (!error) {
+                if ([response routes].count >0) {
+                    MKRoute *route = [response routes][0];
+                    [mapView addOverlay:[route polyline] level:MKOverlayLevelAboveRoads];
+                }
+                           }
+        }];
+        //        CLLocationCoordinate2D coordinateArray[2];
+        //        coordinateArray[0] = CLLocationCoordinate2DMake(coordinate.latitude, coordinate.longitude);
+        //        coordinateArray[1] = CLLocationCoordinate2DMake(12.97563, 77.599282);
+        //                self.routeLine = [MKPolyline polylineWithCoordinates:coordinateArray count:2];
+        //        [self.mapView setVisibleMapRect:[self.routeLine boundingMapRect]]; //If you want the route to be visible
+        //
+        //        [self.mapView addOverlay:self.routeLine];
+    };
+    
     [customView.friendsButton addTarget:self action:@selector(friendsButtonClicked:) forControlEvents:UIControlEventTouchUpInside];
-
-
+    
+    
     [view addSubview:customView];
-
+    
     customView.center = CGPointMake(view.bounds.size.width*0.5f, -view.bounds.size.height*0.8f);
     
 }
--(void)bookNowButtonClicked:(id)sender {
-    
-}
+
 
 -(void)friendsButtonClicked:(id)sender {
     
@@ -196,6 +284,17 @@
         }];
         
     }
+}
+- (MKOverlayRenderer *)mapView:(MKMapView *)mapView rendererForOverlay:(id<MKOverlay>)overlay
+{
+    if ([overlay isKindOfClass:[MKPolyline class]]) {
+        MKPolyline *route = overlay;
+        MKPolylineRenderer *routeRenderer = [[MKPolylineRenderer alloc] initWithPolyline:route];
+        routeRenderer.lineWidth = 3.0f;
+        routeRenderer.strokeColor = [UIColor blueColor];
+        return routeRenderer;
+    }
+    else return nil;
 }
 
 /*

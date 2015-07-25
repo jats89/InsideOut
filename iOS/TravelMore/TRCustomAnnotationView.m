@@ -9,7 +9,6 @@
 #import "TRCustomAnnotationView.h"
 
 @implementation TRCustomAnnotationView
-
 /*
 // Only override drawRect: if you perform custom drawing.
 // An empty implementation adversely affects performance during animation.
@@ -17,5 +16,10 @@
     // Drawing code
 }
 */
-
+-(void)awakeFromNib {
+    [self.bookNowButton addTarget:self action:@selector(bookNowButtonClicked:) forControlEvents:UIControlEventTouchUpInside];
+}
+-(void)bookNowButtonClicked:(id)sender {
+    _bookBlock(_coordinate);
+}
 @end
