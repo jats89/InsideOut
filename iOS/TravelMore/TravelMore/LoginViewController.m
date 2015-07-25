@@ -13,6 +13,7 @@
 #import <FBSDKCoreKit/FBSDKCoreKit.h>
 #import "DeformationButton.h"
 #import "Constant.h"
+#import "MapSceneInitialViewController.h"
 
 @interface LoginViewController () <UITextFieldDelegate>
 @property (weak, nonatomic) IBOutlet UIImageView *myImage1;
@@ -47,7 +48,7 @@
     [_logInButton.forDisplayButton setTitleEdgeInsets:UIEdgeInsetsMake(0, 6, 0, 0)];
     [_logInButton.forDisplayButton setImage:[UIImage imageNamed:@"微博logo.png"] forState:UIControlStateNormal];
     
-    [_logInButton addTarget:self action:@selector(loginAction:) forControlEvents:UIControlEventTouchUpInside];
+    [_logInButton addTarget:self action:@selector(facebookAction:) forControlEvents:UIControlEventTouchUpInside];
 }
 
 - (void)viewWillDisappear:(BOOL)animated    {
@@ -111,6 +112,11 @@
 }
 
 -(void)showHome {
+    UIStoryboard *mainStoryboard = [UIStoryboard storyboardWithName:@"main" bundle:[NSBundle mainBundle]];
+    MapSceneInitialViewController *mapCntrl =  (MapSceneInitialViewController*)mainStoryboard.instantiateInitialViewController;
+    [self presentViewController:mapCntrl animated:true completion:nil];
+    
+    
     
 }
 @end
