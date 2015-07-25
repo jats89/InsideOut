@@ -7,7 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
-
+@class MapControl;
+@protocol MapControlDelegate <NSObject>
+-(void)tappedMap;
+@end
 @interface MapControl : UIControl
-
+-(void)setUp;
+-(void)handleTap;
+@property (nonatomic, weak) id<MapControlDelegate> delegate;
 @end

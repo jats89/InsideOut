@@ -38,6 +38,17 @@
 		B53AE3181B63976B00CDC128 /* MMMaterialDesignSpinner.m in Sources */ = {isa = PBXBuildFile; fileRef = B53AE3151B63976B00CDC128 /* MMMaterialDesignSpinner.m */; };
 		B53AE3191B63976B00CDC128 /* DeformationButton.m in Sources */ = {isa = PBXBuildFile; fileRef = B53AE3171B63976B00CDC128 /* DeformationButton.m */; };
 		B53AE31B1B63992F00CDC128 /* friends in Resources */ = {isa = PBXBuildFile; fileRef = B53AE31A1B63992F00CDC128 /* friends */; };
+		B53AE34C1B63B55E00CDC128 /* TGLExposedLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = B53AE3471B63B55E00CDC128 /* TGLExposedLayout.m */; };
+		B53AE34D1B63B55E00CDC128 /* TGLStackedLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = B53AE3491B63B55E00CDC128 /* TGLStackedLayout.m */; };
+		B53AE34E1B63B55E00CDC128 /* TGLStackedViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B53AE34B1B63B55E00CDC128 /* TGLStackedViewController.m */; };
+		B53AE3511B63B56A00CDC128 /* TGLViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B53AE3501B63B56A00CDC128 /* TGLViewController.m */; };
+		B53AE3541B63B59A00CDC128 /* TGLCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B53AE3531B63B59A00CDC128 /* TGLCollectionViewCell.m */; };
+		B53AE3571B63CB5300CDC128 /* FriendControl.m in Sources */ = {isa = PBXBuildFile; fileRef = B53AE3561B63CB5300CDC128 /* FriendControl.m */; };
+		B53AE3591B63CB6300CDC128 /* Friend.xib in Resources */ = {isa = PBXBuildFile; fileRef = B53AE3581B63CB6300CDC128 /* Friend.xib */; };
+		B53AE35F1B63D18900CDC128 /* UIViewController+Helper.m in Sources */ = {isa = PBXBuildFile; fileRef = B53AE35E1B63D18900CDC128 /* UIViewController+Helper.m */; };
+		B53AE3611B63D3B200CDC128 /* fri.json in Resources */ = {isa = PBXBuildFile; fileRef = B53AE3601B63D3B200CDC128 /* fri.json */; };
+		B53AE3631B63E02500CDC128 /* 3-5-stars.png in Resources */ = {isa = PBXBuildFile; fileRef = B53AE3621B63E02500CDC128 /* 3-5-stars.png */; };
+		B53AE3651B63E07E00CDC128 /* white_star_u2606_icon_256x256.png in Resources */ = {isa = PBXBuildFile; fileRef = B53AE3641B63E07E00CDC128 /* white_star_u2606_icon_256x256.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -104,6 +115,24 @@
 		B53AE3171B63976B00CDC128 /* DeformationButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DeformationButton.m; sourceTree = "<group>"; };
 		B53AE31A1B63992F00CDC128 /* friends */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = friends; sourceTree = "<group>"; };
 		B53AE31D1B639DA800CDC128 /* Constant.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Constant.h; sourceTree = "<group>"; };
+		B53AE3461B63B55E00CDC128 /* TGLExposedLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TGLExposedLayout.h; sourceTree = "<group>"; };
+		B53AE3471B63B55E00CDC128 /* TGLExposedLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TGLExposedLayout.m; sourceTree = "<group>"; };
+		B53AE3481B63B55E00CDC128 /* TGLStackedLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TGLStackedLayout.h; sourceTree = "<group>"; };
+		B53AE3491B63B55E00CDC128 /* TGLStackedLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TGLStackedLayout.m; sourceTree = "<group>"; };
+		B53AE34A1B63B55E00CDC128 /* TGLStackedViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TGLStackedViewController.h; sourceTree = "<group>"; };
+		B53AE34B1B63B55E00CDC128 /* TGLStackedViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TGLStackedViewController.m; sourceTree = "<group>"; };
+		B53AE34F1B63B56A00CDC128 /* TGLViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TGLViewController.h; sourceTree = "<group>"; };
+		B53AE3501B63B56A00CDC128 /* TGLViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TGLViewController.m; sourceTree = "<group>"; };
+		B53AE3521B63B59A00CDC128 /* TGLCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TGLCollectionViewCell.h; sourceTree = "<group>"; };
+		B53AE3531B63B59A00CDC128 /* TGLCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TGLCollectionViewCell.m; sourceTree = "<group>"; };
+		B53AE3551B63CB5300CDC128 /* FriendControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FriendControl.h; sourceTree = "<group>"; };
+		B53AE3561B63CB5300CDC128 /* FriendControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FriendControl.m; sourceTree = "<group>"; };
+		B53AE3581B63CB6300CDC128 /* Friend.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Friend.xib; sourceTree = "<group>"; };
+		B53AE35D1B63D18900CDC128 /* UIViewController+Helper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+Helper.h"; sourceTree = "<group>"; };
+		B53AE35E1B63D18900CDC128 /* UIViewController+Helper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+Helper.m"; sourceTree = "<group>"; };
+		B53AE3601B63D3B200CDC128 /* fri.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = fri.json; sourceTree = "<group>"; };
+		B53AE3621B63E02500CDC128 /* 3-5-stars.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "3-5-stars.png"; sourceTree = "<group>"; };
+		B53AE3641B63E07E00CDC128 /* white_star_u2606_icon_256x256.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = white_star_u2606_icon_256x256.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -163,6 +192,7 @@
 		450841C81B6364E200249E5B /* TravelMore */ = {
 			isa = PBXGroup;
 			children = (
+				B53AE3451B63B55400CDC128 /* Collection */,
 				4508420C1B63A55400249E5B /* MapSceneInitialViewController.h */,
 				4508420D1B63A55400249E5B /* MapSceneInitialViewController.m */,
 				4508420A1B63A54900249E5B /* MapLocations.json */,
@@ -191,6 +221,7 @@
 			children = (
 				450841CA1B6364E200249E5B /* Info.plist */,
 				450841CB1B6364E200249E5B /* main.m */,
+				B53AE3601B63D3B200CDC128 /* fri.json */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -218,6 +249,9 @@
 				450842051B63A53E00249E5B /* MapControl.h */,
 				450842061B63A53E00249E5B /* MapControl.m */,
 				450842071B63A53E00249E5B /* MapControl.xib */,
+				B53AE3551B63CB5300CDC128 /* FriendControl.h */,
+				B53AE3561B63CB5300CDC128 /* FriendControl.m */,
+				B53AE3581B63CB6300CDC128 /* Friend.xib */,
 			);
 			name = CustomViews;
 			sourceTree = "<group>";
@@ -234,12 +268,18 @@
 		B5340EC21B63746600A24775 /* Helper */ = {
 			isa = PBXGroup;
 			children = (
+				B53AE34F1B63B56A00CDC128 /* TGLViewController.h */,
+				B53AE3501B63B56A00CDC128 /* TGLViewController.m */,
 				B5340EB91B6373AE00A24775 /* NSObject+Helper.h */,
 				B5340EBA1B6373AE00A24775 /* NSObject+Helper.m */,
 				B5340EBC1B6373F100A24775 /* UIView+Helper.h */,
 				B5340EBD1B6373F100A24775 /* UIView+Helper.m */,
+				B53AE3641B63E07E00CDC128 /* white_star_u2606_icon_256x256.png */,
 				B5340EBF1B63745200A24775 /* UIColor+Helper.h */,
+				B53AE3621B63E02500CDC128 /* 3-5-stars.png */,
 				B5340EC01B63745200A24775 /* UIColor+Helper.m */,
+				B53AE35D1B63D18900CDC128 /* UIViewController+Helper.h */,
+				B53AE35E1B63D18900CDC128 /* UIViewController+Helper.m */,
 			);
 			name = Helper;
 			sourceTree = "<group>";
@@ -291,6 +331,21 @@
 				B53AE3171B63976B00CDC128 /* DeformationButton.m */,
 			);
 			name = "New Group";
+			sourceTree = "<group>";
+		};
+		B53AE3451B63B55400CDC128 /* Collection */ = {
+			isa = PBXGroup;
+			children = (
+				B53AE3461B63B55E00CDC128 /* TGLExposedLayout.h */,
+				B53AE3471B63B55E00CDC128 /* TGLExposedLayout.m */,
+				B53AE3481B63B55E00CDC128 /* TGLStackedLayout.h */,
+				B53AE3491B63B55E00CDC128 /* TGLStackedLayout.m */,
+				B53AE3521B63B59A00CDC128 /* TGLCollectionViewCell.h */,
+				B53AE3531B63B59A00CDC128 /* TGLCollectionViewCell.m */,
+				B53AE34A1B63B55E00CDC128 /* TGLStackedViewController.h */,
+				B53AE34B1B63B55E00CDC128 /* TGLStackedViewController.m */,
+			);
+			name = Collection;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -376,12 +431,16 @@
 				B53AE30D1B638A5E00CDC128 /* FBAudienceNetwork.README.txt in Resources */,
 				B53AE31B1B63992F00CDC128 /* friends in Resources */,
 				B5340EAF1B6369DB00A24775 /* Login.storyboard in Resources */,
+				B53AE3631B63E02500CDC128 /* 3-5-stars.png in Resources */,
+				B53AE3591B63CB6300CDC128 /* Friend.xib in Resources */,
 				B53AE30B1B638A5E00CDC128 /* FacebookSDKStrings.bundle in Resources */,
 				450841D51B6364E200249E5B /* Main.storyboard in Resources */,
 				450841DA1B6364E200249E5B /* LaunchScreen.xib in Resources */,
 				450842091B63A53E00249E5B /* MapControl.xib in Resources */,
 				4508420B1B63A54900249E5B /* MapLocations.json in Resources */,
+				B53AE3651B63E07E00CDC128 /* white_star_u2606_icon_256x256.png in Resources */,
 				450841D71B6364E200249E5B /* Images.xcassets in Resources */,
+				B53AE3611B63D3B200CDC128 /* fri.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -399,16 +458,23 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B53AE35F1B63D18900CDC128 /* UIViewController+Helper.m in Sources */,
 				B5340EB31B636A5700A24775 /* LoginViewController.m in Sources */,
 				4508420E1B63A55400249E5B /* MapSceneInitialViewController.m in Sources */,
 				B5340EBB1B6373AE00A24775 /* NSObject+Helper.m in Sources */,
 				B5340EBE1B6373F100A24775 /* UIView+Helper.m in Sources */,
+				B53AE3541B63B59A00CDC128 /* TGLCollectionViewCell.m in Sources */,
 				450841D21B6364E200249E5B /* ViewController.m in Sources */,
 				B53AE2FC1B63854D00CDC128 /* JVFloatLabeledTextField.m in Sources */,
+				B53AE3571B63CB5300CDC128 /* FriendControl.m in Sources */,
+				B53AE34E1B63B55E00CDC128 /* TGLStackedViewController.m in Sources */,
+				B53AE3511B63B56A00CDC128 /* TGLViewController.m in Sources */,
 				450842111B63A5A900249E5B /* PlaceInfo.m in Sources */,
 				B5340EC11B63745200A24775 /* UIColor+Helper.m in Sources */,
 				B53AE3191B63976B00CDC128 /* DeformationButton.m in Sources */,
 				450842081B63A53E00249E5B /* MapControl.m in Sources */,
+				B53AE34D1B63B55E00CDC128 /* TGLStackedLayout.m in Sources */,
+				B53AE34C1B63B55E00CDC128 /* TGLExposedLayout.m in Sources */,
 				B53AE2FD1B63854D00CDC128 /* JVFloatLabeledTextView.m in Sources */,
 				B53AE3181B63976B00CDC128 /* MMMaterialDesignSpinner.m in Sources */,
 				450841CF1B6364E200249E5B /* AppDelegate.m in Sources */,

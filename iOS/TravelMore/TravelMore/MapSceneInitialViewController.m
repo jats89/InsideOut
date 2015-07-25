@@ -10,9 +10,10 @@
 #import <MapKit/MapKit.h>
 #import "PlaceInfo.h"
 #import "MapControl.h"
+#import "FriendControl.h"
+#import "UIViewController+Helper.h"
 
-
-@interface MapSceneInitialViewController ()<MKMapViewDelegate>  {
+@interface MapSceneInitialViewController ()<MKMapViewDelegate, FriendControlProtocol, MapControlDelegate>  {
     UIView *selectedAccesoryView;
 }
 @property (nonatomic, weak)IBOutlet MKMapView *mapView;
@@ -37,11 +38,7 @@
 - (MKAnnotationView *)mapView:(MKMapView *)mapView
             viewForAnnotation:(id < MKAnnotation >)annotation
 {
-    //    if([annotation class] == MKUserLocation.class)
-    //        return nil;
     NSString *pinIdentifier = @"pin";
-    
-    
     MKPinAnnotationView *annotationView = (MKPinAnnotationView *) [mapView dequeueReusableAnnotationViewWithIdentifier:pinIdentifier];
     
     if(annotationView == nil)
@@ -49,34 +46,40 @@
     else
         annotationView.annotation = annotation;
     
-    MapControl *customLeftBtn =   [[[NSBundle mainBundle] loadNibNamed:@"MapControl"
-                                                                  owner:self
-                                                                options:nil]
-                                    objectAtIndex:0];
-    // Never had this line fire...
-    
     annotationView.canShowCallout = YES;
     annotationView.animatesDrop = YES;
     annotationView.enabled = YES;
     annotationView.calloutOffset = CGPointMake(-5, -5);
-    
-    customLeftBtn.backgroundColor = [UIColor blueColor];
-//    [customLeftBtn setTitle:@"Pick" forState:UIControlStateNormal];
-    customLeftBtn.tintColor = [UIColor whiteColor];
-//    customLeftBtn.titleEdgeInsets = UIEdgeInsetsMake(0, 5, 0, 5);
-    customLeftBtn.frame = CGRectMake(0, 0, 82, 156);
-    CGRect frame = customLeftBtn.frame;
-    frame.size.height = 156;
-    annotationView.frame = frame;
-    annotationView.leftCalloutAccessoryView = customLeftBtn;
-    MapControl *customRightBtn =   [[[NSBundle mainBundle] loadNibNamed:@"MapControl"
-                                                                 owner:self
-                                                               options:nil]
-                                   objectAtIndex:0];
-      customRightBtn.frame = CGRectMake(0, 0, 90, 100);
 
-    annotationView.rightCalloutAccessoryView = customRightBtn;
+    MapControl *customLeftBtn =   [[[NSBundle mainBundle] loadNibNamed:@"MapControl"
+                                                                  owner:self
+                                                                options:nil]
+                                    objectAtIndex:0];
+    [customLeftBtn setUp];
+    customLeftBtn.delegate = self;
+    customLeftBtn.backgroundColor = [UIColor blueColor];
+    customLeftBtn.tintColor = [UIColor whiteColor];
+    customLeftBtn.frame = CGRectMake(0, 0, 100, 100);
+
+    annotationView.leftCalloutAccessoryView = customLeftBtn;
+   
+    FriendControl *friend =   [[[NSBundle mainBundle] loadNibNamed:@"Friend"
+                                                               owner:self                                                              options:nil]
+                                 objectAtIndex:0];
+    friend.frame = CGRectMake(0, 0, 100, 100);
+    [friend setUp];
+    friend.delegate = self;
+    annotationView.rightCalloutAccessoryView = friend;
     return annotationView;
+}
+
+-(void)tapped   {
+    NSLog(@"friend tapped");
+}
+
+-(void)tappedMap    {
+    NSLog(@"Pick now tapped ");
+    [UIViewController sendNotificationWithTitle:@"ad" msg:@""];
 }
 
 - (void)mapView:(MKMapView *)mv annotationView:(MKAnnotationView *)pin calloutAccessoryControlTapped:(UIControl *)control {

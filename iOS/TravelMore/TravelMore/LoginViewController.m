@@ -14,6 +14,7 @@
 #import "DeformationButton.h"
 #import "Constant.h"
 #import "MapSceneInitialViewController.h"
+#import "TGLViewController.h"
 
 @interface LoginViewController () <UITextFieldDelegate>
 @property (weak, nonatomic) IBOutlet UIImageView *myImage1;
@@ -98,25 +99,26 @@
 }
 
 -(IBAction)facebookAction:(id)sender    {
-    [FBSDKAccessToken setCurrentAccessToken:nil];
-    FBSDKLoginManager *login = [[FBSDKLoginManager alloc] init];
-    [login logInWithReadPermissions:@[@"email",@"user_friends"] handler:^(FBSDKLoginManagerLoginResult *result, NSError *error) {
-        if (error) {
-            NSLog(@"Error");
-        } else if (result.isCancelled) {
-            NSLog(@"Cancel Pressed");
-        } else {
+//    [FBSDKAccessToken setCurrentAccessToken:nil];
+//    FBSDKLoginManager *login = [[FBSDKLoginManager alloc] init];
+//    [login logInWithReadPermissions:@[@"email",@"user_friends"] handler:^(FBSDKLoginManagerLoginResult *result, NSError *error) {
+//        if (error) {
+//            NSLog(@"Error");
+//        } else if (result.isCancelled) {
+//            NSLog(@"Cancel Pressed");
+//        } else {
             [self showHome];
-        }
-    }];
+//        }
+//    }];
 }
 
 -(void)showHome {
-    UIStoryboard *mainStoryboard = [UIStoryboard storyboardWithName:@"main" bundle:[NSBundle mainBundle]];
-    MapSceneInitialViewController *mapCntrl =  (MapSceneInitialViewController*)mainStoryboard.instantiateInitialViewController;
-    [self presentViewController:mapCntrl animated:true completion:nil];
-    
-    
-    
+    [self performSegueWithIdentifier:@"ModalExposed" sender:nil];
 }
+
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    
+    
+
+    }
 @end
