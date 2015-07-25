@@ -1,7 +1,7 @@
 /**
  * 
  */
-package com.apps.insideout;
+package com.apps.insideout.model;
 
 /**
  * @author Abhimanyu Sharma
