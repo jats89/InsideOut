@@ -14,6 +14,7 @@
 		450841D71B6364E200249E5B /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 450841D61B6364E200249E5B /* Images.xcassets */; };
 		450841DA1B6364E200249E5B /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 450841D81B6364E200249E5B /* LaunchScreen.xib */; };
 		450841E61B6364E200249E5B /* TravelMoreTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 450841E51B6364E200249E5B /* TravelMoreTests.m */; };
+		450841F01B636B1900249E5B /* MapScene.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 450841EF1B636B1900249E5B /* MapScene.storyboard */; };
 		D19CF96D062121EF88A8D91F /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 14B9A8A46EDA37DCAB65C637 /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -44,6 +45,7 @@
 		450841DF1B6364E200249E5B /* TravelMoreTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TravelMoreTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		450841E41B6364E200249E5B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		450841E51B6364E200249E5B /* TravelMoreTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TravelMoreTests.m; sourceTree = "<group>"; };
+		450841EF1B636B1900249E5B /* MapScene.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MapScene.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -104,6 +106,7 @@
 				450841D61B6364E200249E5B /* Images.xcassets */,
 				450841D81B6364E200249E5B /* LaunchScreen.xib */,
 				450841C91B6364E200249E5B /* Supporting Files */,
+				450841EF1B636B1900249E5B /* MapScene.storyboard */,
 			);
 			path = TravelMore;
 			sourceTree = "<group>";
@@ -227,6 +230,7 @@
 			files = (
 				450841D51B6364E200249E5B /* Main.storyboard in Resources */,
 				450841DA1B6364E200249E5B /* LaunchScreen.xib in Resources */,
+				450841F01B636B1900249E5B /* MapScene.storyboard in Resources */,
 				450841D71B6364E200249E5B /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
