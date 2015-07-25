@@ -17,6 +17,6 @@
 @property (weak, nonatomic) IBOutlet UILabel *titlelabel;
 @property (weak, nonatomic) IBOutlet UILabel *subTitlelabel;
 @property  CLLocationCoordinate2D coordinate;
-@property (nonatomic, copy) void (^bookBlock)(CLLocationCoordinate2D);
+@property (nonatomic, copy) void (^bookBlock)(CLLocationCoordinate2D,UIButton*);
 
 @end

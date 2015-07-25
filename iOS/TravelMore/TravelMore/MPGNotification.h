@@ -115,5 +115,6 @@ typedef void (^MPGNotificationDismissHandler)(MPGNotification *notification);
 
 // Dismiss the notification. Occurs automatically if any enabled button is pressed.
 - (void)dismissWithAnimation:(BOOL)animated;
+- (void)setButtonWithImages;
 
 @end

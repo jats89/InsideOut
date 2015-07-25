@@ -13,6 +13,7 @@
 #import "TRCustomAnnotationView.h"
 #import "TRMCustomAnnotationView.h"
 #import "MPGNotification.h"
+#import "Appdelegate.h"
 
 
 
@@ -20,6 +21,8 @@
 @interface MapSceneInitialViewController ()<MKMapViewDelegate>  {
     UIView *selectedAccesoryView;
     MPGNotification *notification;
+    CLLocationCoordinate2D userCoordinate;
+    CLLocationCoordinate2D hotelsCoordiante;
     
 }
 @property (nonatomic, weak)IBOutlet MKMapView *mapView;
@@ -36,6 +39,7 @@
 - (void)viewDidLoad {
     
     [super viewDidLoad];
+    userCoordinate = CLLocationCoordinate2DMake(37.3369444, -121.94);
     _placeList = [[NSMutableArray alloc]init];
     
     [self readSurvyes];
@@ -43,63 +47,28 @@
     [self setPlaces];
     [self.mapView showsUserLocation];
     
-    self.notifTimer = [NSTimer scheduledTimerWithTimeInterval:5 target:self selector:@selector(notifTimerInvoked:) userInfo:nil repeats:false];
+    
+    
     // Do any additional setup after loading the view.
 }
--(void)notifTimerInvoked:(NSTimer *)timer  {
-    NSArray *buttonArray;
-    UIImage *icon;
-    NSString *subtitle;
+-(void)notifTimerInvoked  {
+    AppDelegate *appDelegate = [UIApplication sharedApplication].delegate;
+    appDelegate.questionCount = 0;
+    [appDelegate notifTimerInvoked];
     
-    buttonArray = [NSArray arrayWithObjects:@"Reply",@"Later", nil];
     
-    icon = [UIImage imageNamed:@"ChatIcon"];
-    
-    subtitle = @"Did you hear my new collab on Beatport? It's on #1. It's getting incredible reviews as well. Let me know what you think of it!";
-    notification = [MPGNotification notificationWithTitle:@"Joey Dale" subtitle:subtitle backgroundColor:[UIColor blueColor] iconImage:icon];
-    [notification setButtonConfiguration:buttonArray.count withButtonTitles:buttonArray];
-    notification.duration = 2.0;
-    notification.swipeToDismissEnabled = NO;
-        __weak typeof(self) weakSelf = self;
-    [notification setDismissHandler:^(MPGNotification *notification) {
-        //        [weakSelf.showNotificationButton setEnabled:YES];
-    }];
-    
-    [notification setButtonHandler:^(MPGNotification *notification, NSInteger buttonIndex) {
-        NSLog(@"buttonIndex : %ld", (long)buttonIndex);
-        //        [weakSelf.showNotificationButton setEnabled:YES];
-    }];
-    
-    //    if (!([_colorChooser selectedSegmentIndex] == 3 || [_colorChooser selectedSegmentIndex] == 1)) {
-    [notification setTitleColor:[UIColor whiteColor]];
-    [notification setSubtitleColor:[UIColor whiteColor]];
-    //    }
-    //
-    //    switch ([_animationType selectedSegmentIndex]) {
-    //        case 0:
-    //            [notification setAnimationType:MPGNotificationAnimationTypeLinear];
-    //            break;
-    //
-    //        case 1:
-    //            [notification setAnimationType:MPGNotificationAnimationTypeDrop];
-    //            break;
-    //
-    //        case 2:
-    [notification setAnimationType:MPGNotificationAnimationTypeSnap];
-    //            break;
-    //
-    //        default:
-    //            break;
-    //    }
-    //
-    [notification show];
-    //    [_showNotificationButton setEnabled:NO];
 }
 
 - (MKAnnotationView *)mapView:(MKMapView *)mapView
             viewForAnnotation:(id < MKAnnotation >)annotation
 {
-    NSString *pinIdentifier = @"pin";
+    NSString *pinIdentifier;
+    if (![[annotation title] isEqualToString:@"User"]) {
+        pinIdentifier = @"pin";
+    } else {
+        pinIdentifier = @"user";
+        
+    }
     
     
     TRMCustomAnnotationView *annotationView = (TRMCustomAnnotationView *) [mapView dequeueReusableAnnotationViewWithIdentifier:pinIdentifier];
@@ -108,7 +77,12 @@
         annotationView = [[TRMCustomAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:pinIdentifier];
     else
         annotationView.annotation = annotation;
-    annotationView.image = [UIImage imageNamed:@"DrawingPin1_Blue"];
+    if (![[annotation title] isEqualToString:@"User"]) {
+        annotationView.image = [UIImage imageNamed:@"DrawingPin1_Blue"];
+    } else {
+        annotationView.image = [UIImage imageNamed:@"user"];
+        
+    }
     annotationView.calloutOffset = CGPointMake(-5, -5);
     
     return annotationView;
@@ -168,53 +142,31 @@
     //            subView.hidden = false;
     //        }
     //    }
-    TRCustomAnnotationView *customView = [[[NSBundle mainBundle] loadNibNamed:@"TRCustomAnnotationView"
-                                                                        owner:self
-                                                                      options:nil]
-                                          objectAtIndex:0];
-    customView.frame = CGRectMake(0, 0, 300, 60);
-    customView.layer.cornerRadius = 10.0f;
-    customView.layer.masksToBounds = true;
-    customView.titlelabel.text = [view.annotation title];
-    customView.subTitlelabel.text = [view.annotation subtitle];
-    customView.coordinate = [view.annotation coordinate];
-    customView.bookBlock = ^(CLLocationCoordinate2D coordinate){
+    if (![[view
+           .annotation title] isEqualToString:@"User"]){
+        TRCustomAnnotationView *customView = [[[NSBundle mainBundle] loadNibNamed:@"TRCustomAnnotationView"
+                                                                            owner:self
+                                                                          options:nil]
+                                              objectAtIndex:0];
+        customView.frame = CGRectMake(0, 0, 300, 60);
+        customView.layer.cornerRadius = 10.0f;
+        customView.layer.masksToBounds = true;
+        customView.titlelabel.text = [view.annotation title];
+        customView.subTitlelabel.text = [view.annotation subtitle];
+        customView.coordinate = [view.annotation coordinate];
+        customView.bookBlock = ^(CLLocationCoordinate2D coordinate, UIButton *sender){
+            hotelsCoordiante = coordinate;
+            [self bookNowButtonClicked:sender];
+            
+        };
         
-        MKDirectionsRequest *request = [[MKDirectionsRequest alloc] init];
-        MKPlacemark *placemark1 = [[MKPlacemark alloc] initWithCoordinate:CLLocationCoordinate2DMake(coordinate.latitude, coordinate.longitude) addressDictionary:nil];
-        [request setSource:[[MKMapItem alloc] initWithPlacemark:placemark1]];
-        
-        MKPlacemark *placemark = [[MKPlacemark alloc] initWithCoordinate:CLLocationCoordinate2DMake(37.3369444, -121.8894459) addressDictionary:nil];
-        request.destination = [[MKMapItem alloc] initWithPlacemark:placemark];
+        [customView.friendsButton addTarget:self action:@selector(friendsButtonClicked:) forControlEvents:UIControlEventTouchUpInside];
         
         
-        // [request setDestination:myMapItem];
-        [request setTransportType:MKDirectionsTransportTypeAutomobile]; // This can be limited to automobile and walking directions.
-        [request setRequestsAlternateRoutes:YES]; // Gives you several route options.
-        MKDirections *directions = [[MKDirections alloc] initWithRequest:request];
-        [directions calculateDirectionsWithCompletionHandler:^(MKDirectionsResponse *response, NSError *error) {
-            if (!error) {
-                if ([response routes].count >0) {
-                    MKRoute *route = [response routes][0];
-                    [mapView addOverlay:[route polyline] level:MKOverlayLevelAboveRoads];
-                }
-                           }
-        }];
-        //        CLLocationCoordinate2D coordinateArray[2];
-        //        coordinateArray[0] = CLLocationCoordinate2DMake(coordinate.latitude, coordinate.longitude);
-        //        coordinateArray[1] = CLLocationCoordinate2DMake(12.97563, 77.599282);
-        //                self.routeLine = [MKPolyline polylineWithCoordinates:coordinateArray count:2];
-        //        [self.mapView setVisibleMapRect:[self.routeLine boundingMapRect]]; //If you want the route to be visible
-        //
-        //        [self.mapView addOverlay:self.routeLine];
-    };
-    
-    [customView.friendsButton addTarget:self action:@selector(friendsButtonClicked:) forControlEvents:UIControlEventTouchUpInside];
-    
-    
-    [view addSubview:customView];
-
-    customView.center = CGPointMake(view.bounds.size.width*0.5f, -view.bounds.size.height*0.6f);
+        [view addSubview:customView];
+        
+        customView.center = CGPointMake(view.bounds.size.width*0.5f, -view.bounds.size.height*0.6f);
+    }
     
 }
 -(void)bookNowButtonClicked:(UIButton *)sender {
@@ -226,9 +178,42 @@
         [self performSelector:@selector(response2:) withObject:sender afterDelay:5.0];
     }
 }
+-(void)deselectAllAnnotationa {
+    for (id currentAnnotation in self.mapView.annotations) {
+        if ([currentAnnotation isKindOfClass:[MKPointAnnotation class]]) {
+            [self.mapView deselectAnnotation:currentAnnotation animated:YES];
+        }
+    }
+}
+
 
 -(void)response2:(UIButton *)sender  {
     [sender setTitle:@"Booked" forState:UIControlStateNormal];
+    [self performSelector:@selector(deselectAllAnnotationa) withObject:nil afterDelay:2];
+    
+    
+    self.notifTimer = [NSTimer scheduledTimerWithTimeInterval:5 target:self selector:@selector(notifTimerInvoked) userInfo:nil repeats:false];
+    MKDirectionsRequest *request = [[MKDirectionsRequest alloc] init];
+    MKPlacemark *placemark1 = [[MKPlacemark alloc] initWithCoordinate:hotelsCoordiante addressDictionary:nil];
+    [request setSource:[[MKMapItem alloc] initWithPlacemark:placemark1]];
+    
+    MKPlacemark *placemark = [[MKPlacemark alloc] initWithCoordinate:userCoordinate addressDictionary:nil];
+    request.destination = [[MKMapItem alloc] initWithPlacemark:placemark];
+    
+    
+    // [request setDestination:myMapItem];
+    [request setTransportType:MKDirectionsTransportTypeAutomobile]; // This can be limited to automobile and walking directions.
+    [request setRequestsAlternateRoutes:YES]; // Gives you several route options.
+    MKDirections *directions = [[MKDirections alloc] initWithRequest:request];
+    [directions calculateDirectionsWithCompletionHandler:^(MKDirectionsResponse *response, NSError *error) {
+        if (!error) {
+            if ([response routes].count >0) {
+                MKRoute *route = [response routes][0];
+                [self.mapView addOverlay:[route polyline] level:MKOverlayLevelAboveRoads];
+            }
+        }
+    }];
+    
 }
 
 -(void)response1:(UIButton *)sender  {
@@ -273,11 +258,12 @@
 }
 -(void)setPlaces {
     [self.mapView removeAnnotations:self.mapView.annotations];
-    
+    __block int count = 0;
     for  (PlaceInfo *placeObj in _placeList) {
         CLGeocoder *geoCoder = [[CLGeocoder alloc]init];
         [geoCoder geocodeAddressString:[placeObj getCompleteAddress]  completionHandler:^(NSArray *placemarks, NSError *error) {
             if (placemarks.count >0){
+                count ++;
                 CLPlacemark *placeMark  = placemarks[0];
                 CLLocation *location = placeMark.location;
                 CLLocationCoordinate2D coordinate = location.coordinate;
@@ -288,13 +274,18 @@
                 MKCoordinateRegion region = MKCoordinateRegionMakeWithDistance(annatationPoint.coordinate, 1000, 1000);
                 MKCoordinateSpan span = MKCoordinateSpanMake(0.03, 0.03);
                 region.span = span;
-                
-                dispatch_async(dispatch_get_main_queue(), ^{
-                    [self.mapView setRegion:region];
-                    
-                    [self.mapView addAnnotation:annatationPoint];
-                    [self.mapView showAnnotations:self.mapView.annotations animated:true];
-                });
+                [self.mapView setRegion:region];
+                [self.mapView addAnnotation:annatationPoint];
+                if (count == _placeList.count) {
+                    dispatch_async(dispatch_get_main_queue(), ^{
+                        
+                        MKPointAnnotation *point = [[MKPointAnnotation alloc] init];
+                        point.title = @"User";
+                        point.coordinate = userCoordinate;
+                        [self.mapView addAnnotation:point];
+                        [self.mapView showAnnotations:self.mapView.annotations animated:true];
+                    });
+                }
             };
             
         }];

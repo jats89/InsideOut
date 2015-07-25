@@ -21,7 +21,7 @@
 -(void)awakeFromNib {
     [self.bookNowButton addTarget:self action:@selector(bookNowButtonClicked:) forControlEvents:UIControlEventTouchUpInside];
 }
--(void)bookNowButtonClicked:(id)sender {
-    _bookBlock(_coordinate);
+-(void)bookNowButtonClicked:(UIButton *)sender {
+    _bookBlock(_coordinate,sender);
 }
 @end

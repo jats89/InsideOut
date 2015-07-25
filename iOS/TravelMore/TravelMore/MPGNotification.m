@@ -475,7 +475,7 @@ static const CGFloat kColorAdjustmentLight = 0.35;
             } else {
                 [self.firstButton setTitle:firstButtonTitle forState:UIControlStateNormal];
             }
-            
+            self.firstButton.tag = 0;
             if (configuration == MPGNotificationButtonConfigrationTwoButton) {
                 
                 NSInteger tagIncrement = 4317; // large, random increment to prevent overlapping tags
@@ -488,7 +488,8 @@ static const CGFloat kColorAdjustmentLight = 0.35;
                 } else {
                     [self.secondButton setTitle:firstButtonTitle forState:UIControlStateNormal];
                 }
-                
+                self.secondButton.tag = 1;
+
             }
             
             break;
