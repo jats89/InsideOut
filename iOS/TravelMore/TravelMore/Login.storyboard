@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14E46" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="ahY-ub-nZ5">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--Login View Controller-->
@@ -25,6 +26,13 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bg_1_blur" translatesAutoresizingMaskIntoConstraints="NO" id="ZYf-js-T4U">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                             </imageView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gAO-gS-8tH">
+                                <rect key="frame" x="16" y="272" width="568" height="56"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="56" id="akZ-OZ-KV7"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -32,6 +40,8 @@
                             <constraint firstAttribute="trailing" secondItem="eKP-ld-Yg6" secondAttribute="trailing" id="Auy-UB-0XI"/>
                             <constraint firstItem="eKP-ld-Yg6" firstAttribute="top" secondItem="OKc-Qt-gm0" secondAttribute="top" id="B6w-yw-91A"/>
                             <constraint firstItem="pvd-OD-5or" firstAttribute="top" secondItem="OKc-Qt-gm0" secondAttribute="bottom" id="E0p-Z8-Heh"/>
+                            <constraint firstAttribute="centerY" secondItem="gAO-gS-8tH" secondAttribute="centerY" id="Em7-9s-JQC"/>
+                            <constraint firstAttribute="centerX" secondItem="gAO-gS-8tH" secondAttribute="centerX" id="FqM-mj-rvX"/>
                             <constraint firstItem="pvd-OD-5or" firstAttribute="top" secondItem="eKP-ld-Yg6" secondAttribute="bottom" id="Iun-Fz-pNA"/>
                             <constraint firstAttribute="trailing" secondItem="OKc-Qt-gm0" secondAttribute="trailing" id="KUD-1z-qq7"/>
                             <constraint firstItem="ZYf-js-T4U" firstAttribute="top" secondItem="gge-UD-2Ko" secondAttribute="bottom" constant="-20" id="Sou-6m-YLA"/>
@@ -40,18 +50,21 @@
                             <constraint firstItem="eKP-ld-Yg6" firstAttribute="bottom" secondItem="ZYf-js-T4U" secondAttribute="bottom" id="VyZ-V4-loc"/>
                             <constraint firstItem="OKc-Qt-gm0" firstAttribute="leading" secondItem="A1J-32-v52" secondAttribute="leading" id="X2q-Nk-BUI"/>
                             <constraint firstItem="ZYf-js-T4U" firstAttribute="leading" secondItem="A1J-32-v52" secondAttribute="leading" id="Xkk-X9-nyG"/>
+                            <constraint firstItem="gAO-gS-8tH" firstAttribute="top" secondItem="gge-UD-2Ko" secondAttribute="bottom" constant="252" id="ZW6-vY-yHH"/>
                             <constraint firstItem="OKc-Qt-gm0" firstAttribute="top" secondItem="gge-UD-2Ko" secondAttribute="bottom" constant="-20" id="Zvl-Jq-JJA"/>
                             <constraint firstItem="eKP-ld-Yg6" firstAttribute="top" secondItem="gge-UD-2Ko" secondAttribute="bottom" constant="-20" id="aKq-Wb-JJz"/>
                             <constraint firstItem="pvd-OD-5or" firstAttribute="top" secondItem="ZYf-js-T4U" secondAttribute="bottom" id="aSS-Et-isI"/>
                             <constraint firstItem="eKP-ld-Yg6" firstAttribute="trailing" secondItem="OKc-Qt-gm0" secondAttribute="trailing" id="bA3-hC-zFG"/>
                             <constraint firstAttribute="trailing" secondItem="eKP-ld-Yg6" secondAttribute="trailing" id="bFr-gC-Oqk"/>
                             <constraint firstItem="eKP-ld-Yg6" firstAttribute="top" secondItem="ZYf-js-T4U" secondAttribute="top" id="btL-Rg-pdQ"/>
+                            <constraint firstItem="gAO-gS-8tH" firstAttribute="trailing" secondItem="A1J-32-v52" secondAttribute="trailingMargin" id="cYJ-L6-93w"/>
                             <constraint firstItem="eKP-ld-Yg6" firstAttribute="leading" secondItem="ZYf-js-T4U" secondAttribute="leading" id="cjo-kP-FaK"/>
                             <constraint firstItem="eKP-ld-Yg6" firstAttribute="trailing" secondItem="ZYf-js-T4U" secondAttribute="trailing" id="iPO-Cm-laY"/>
                             <constraint firstItem="eKP-ld-Yg6" firstAttribute="bottom" secondItem="OKc-Qt-gm0" secondAttribute="bottom" id="rTg-oc-r0w"/>
                             <constraint firstItem="eKP-ld-Yg6" firstAttribute="leading" secondItem="A1J-32-v52" secondAttribute="leading" id="tsQ-NZ-PrH"/>
                             <constraint firstItem="eKP-ld-Yg6" firstAttribute="leading" secondItem="A1J-32-v52" secondAttribute="leading" id="wCQ-vO-6mY"/>
                             <constraint firstItem="eKP-ld-Yg6" firstAttribute="top" secondItem="A1J-32-v52" secondAttribute="top" id="wQC-xr-qKv"/>
+                            <constraint firstItem="gAO-gS-8tH" firstAttribute="leading" secondItem="A1J-32-v52" secondAttribute="leadingMargin" id="zny-C2-CaL"/>
                         </constraints>
                         <variation key="default">
                             <mask key="constraints">
@@ -64,6 +77,7 @@
                                 <exclude reference="Auy-UB-0XI"/>
                                 <exclude reference="aKq-Wb-JJz"/>
                                 <exclude reference="tsQ-NZ-PrH"/>
+                                <exclude reference="ZW6-vY-yHH"/>
                                 <exclude reference="E0p-Z8-Heh"/>
                                 <exclude reference="Iun-Fz-pNA"/>
                                 <exclude reference="aSS-Et-isI"/>
@@ -92,6 +106,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="vyh-b5-vrV"/>
                     <connections>
+                        <outlet property="coverView" destination="gAO-gS-8tH" id="RBB-6z-sCV"/>
                         <outlet property="myImage1" destination="ZYf-js-T4U" id="5Y4-Yd-KOk"/>
                         <outlet property="myImage2" destination="eKP-ld-Yg6" id="AE6-iF-YqE"/>
                         <outlet property="myImage3" destination="OKc-Qt-gm0" id="ENN-63-spf"/>
@@ -99,7 +114,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ijY-wB-dWC" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1067.25" y="389.25"/>
+            <point key="canvasLocation" x="-1068" y="389"/>
         </scene>
     </scenes>
     <resources>

@@ -8,6 +8,11 @@
 
 #import "LoginViewController.h"
 #import "UIColor+Helper.h"
+#import "JVFloatLabeledTextField.h"
+#import <FBSDKLoginKit/FBSDKLoginKit.h>
+#import <FBSDKCoreKit/FBSDKCoreKit.h>
+#import "DeformationButton.h"
+#import "Constant.h"
 
 @interface LoginViewController () <UITextFieldDelegate>
 @property (weak, nonatomic) IBOutlet UIImageView *myImage1;
@@ -15,8 +20,11 @@
 @property (weak, nonatomic) IBOutlet UIImageView *myImage3;
 @property (nonatomic, strong) NSTimer *timer;
 @property (nonatomic, strong) NSNumber *currentImageIndex;
-@property (nonatomic, strong) IBOutlet UIButton *logInButton;
-@property (nonatomic, strong) IBOutlet UIButton *coverView;
+@property (nonatomic, strong) DeformationButton *logInButton;
+@property (nonatomic, strong) IBOutlet UIView *coverView;
+
+@property (nonatomic, weak) IBOutlet JVFloatLabeledTextField *username;
+@property (nonatomic, weak) IBOutlet JVFloatLabeledTextField *password;
 @end
 
 @implementation LoginViewController
@@ -27,8 +35,19 @@
                                                   target:self
                                                 selector:@selector(updateImage:)
                                                 userInfo:nil repeats:YES];
+    _username.placeholder = @"Username";
+    _password.placeholder = @"Password";
     
-    self.logInButton.backgroundColor = [UIColor colorWithHexString:@"382137"];
+    _logInButton = [[DeformationButton alloc]initWithFrame:CGRectMake(0,0,370, 40) withColor:[UIColor redColor]];
+    [self.coverView addSubview:_logInButton];
+    [_logInButton.forDisplayButton.titleLabel setFont:[UIFont fontWithName:APP_FONT_BOLD size:20.0]];
+    [_logInButton.forDisplayButton setTitle:@"Login With Facebook" forState:UIControlStateNormal];
+    [_logInButton.forDisplayButton.titleLabel setFont:[UIFont systemFontOfSize:15]];
+    [_logInButton.forDisplayButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+    [_logInButton.forDisplayButton setTitleEdgeInsets:UIEdgeInsetsMake(0, 6, 0, 0)];
+    [_logInButton.forDisplayButton setImage:[UIImage imageNamed:@"微博logo.png"] forState:UIControlStateNormal];
+    
+    [_logInButton addTarget:self action:@selector(loginAction:) forControlEvents:UIControlEventTouchUpInside];
 }
 
 - (void)viewWillDisappear:(BOOL)animated    {
@@ -53,23 +72,45 @@
     UIColor *backgroundColor;
     switch (counter) {
         case 1:
-            backgroundColor = [UIColor colorWithHexString:@"382137"];
+            backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:fadeOut]];
             break;
         case 2:
-            backgroundColor = [UIColor colorWithHexString:@"2F415D"];
+            backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:fadeOut]];
             break;
         default:
-            backgroundColor = [UIColor colorWithHexString:@"2F2C26"];
+            backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:fadeOut]];
             break;
     }
     
     [UIView animateWithDuration:2.0 animations:^{
         [[self valueForKey:fadeOut] setAlpha:0.0];
-        self.logInButton.backgroundColor = backgroundColor;
         
     } completion:^(BOOL finished) {
         UIImageView *fadeInView = [self valueForKey:fadeIn];
         [self.view bringSubviewToFront:fadeInView];
+        [self.view bringSubviewToFront:self.coverView];
     }];
+}
+
+-(IBAction)loginAction:(id)sender   {
+    
+}
+
+-(IBAction)facebookAction:(id)sender    {
+    [FBSDKAccessToken setCurrentAccessToken:nil];
+    FBSDKLoginManager *login = [[FBSDKLoginManager alloc] init];
+    [login logInWithReadPermissions:@[@"email",@"user_friends"] handler:^(FBSDKLoginManagerLoginResult *result, NSError *error) {
+        if (error) {
+            NSLog(@"Error");
+        } else if (result.isCancelled) {
+            NSLog(@"Cancel Pressed");
+        } else {
+            [self showHome];
+        }
+    }];
+}
+
+-(void)showHome {
+    
 }
 @end
