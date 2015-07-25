@@ -14,7 +14,8 @@
 #import "TRMCustomAnnotationView.h"
 #import "FriendControl.h"
 
-@interface MapSceneInitialViewController ()<MKMapViewDelegate, FriendControlProtocol, MapControlDelegate>  {
+
+@interface MapSceneInitialViewController ()<MKMapViewDelegate>  {
     UIView *selectedAccesoryView;
 }
 @property (nonatomic, weak)IBOutlet MKMapView *mapView;

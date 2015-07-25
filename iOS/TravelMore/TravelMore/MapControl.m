@@ -17,6 +17,6 @@
 }
 
 -(void)handleTap   {
-    [self.delegate tappedMap];
+//    [self.delegate tappedMap];
 }
 @end
