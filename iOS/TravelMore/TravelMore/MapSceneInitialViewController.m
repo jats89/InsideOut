@@ -14,7 +14,8 @@
 #import "TRMCustomAnnotationView.h"
 
 
-@interface MapSceneInitialViewController ()<MKMapViewDelegate, FriendControlProtocol, MapControlDelegate>  {
+
+@interface MapSceneInitialViewController ()<MKMapViewDelegate>  {
     UIView *selectedAccesoryView;
 }
 @property (nonatomic, weak)IBOutlet MKMapView *mapView;
@@ -61,7 +62,7 @@
 
 -(void)tappedMap    {
     NSLog(@"Pick now tapped ");
-    [UIViewController sendNotificationWithTitle:@"ad" msg:@""];
+//    [UIViewController sendNotificationWithTitle:@"ad" msg:@""];
 }
 
 - (void)mapView:(MKMapView *)mv annotationView:(MKAnnotationView *)pin calloutAccessoryControlTapped:(UIControl *)control {
