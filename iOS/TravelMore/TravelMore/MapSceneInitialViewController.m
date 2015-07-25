@@ -12,7 +12,7 @@
 #import "MapControl.h"
 #import "TRCustomAnnotationView.h"
 #import "TRMCustomAnnotationView.h"
-
+#import "FriendControl.h"
 
 @interface MapSceneInitialViewController ()<MKMapViewDelegate, FriendControlProtocol, MapControlDelegate>  {
     UIView *selectedAccesoryView;
@@ -56,12 +56,11 @@
 }
 
 -(void)tapped   {
-    NSLog(@"friend tapped");
+    [self performSegueWithIdentifier:@"friend" sender:nil];
 }
 
 -(void)tappedMap    {
     NSLog(@"Pick now tapped ");
-    [UIViewController sendNotificationWithTitle:@"ad" msg:@""];
 }
 
 - (void)mapView:(MKMapView *)mv annotationView:(MKAnnotationView *)pin calloutAccessoryControlTapped:(UIControl *)control {

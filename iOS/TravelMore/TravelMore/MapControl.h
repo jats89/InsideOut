@@ -14,4 +14,5 @@
 @interface MapControl : UIControl
 @property (nonatomic, strong)IBOutlet UIActivityIndicatorView *activityIndicator;
 @property (nonatomic, strong)IBOutlet UILabel *infoLabel;
+@property (nonatomic, weak) id<MapControlDelegate> delegate;
 @end
