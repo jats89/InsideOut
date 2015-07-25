@@ -8,7 +8,10 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- * Servlet implementation class DestHackPhotographs
+ * @author Abhimanyu Sharma
+ * @version 0.1
+ * @since 25/07/2015
+ *
  */
 @WebServlet("/DestHackPhotographs")
 public class DestHackPhotographs extends HttpServlet {
