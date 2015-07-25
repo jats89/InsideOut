@@ -15,6 +15,7 @@
 #import "FriendControl.h"
 
 
+
 @interface MapSceneInitialViewController ()<MKMapViewDelegate>  {
     UIView *selectedAccesoryView;
 }
@@ -54,14 +55,6 @@
     annotationView.calloutOffset = CGPointMake(-5, -5);
     
     return annotationView;
-}
-
--(void)tapped   {
-    [self performSegueWithIdentifier:@"friend" sender:nil];
-}
-
--(void)tappedMap    {
-    NSLog(@"Pick now tapped ");
 }
 
 - (void)mapView:(MKMapView *)mv annotationView:(MKAnnotationView *)pin calloutAccessoryControlTapped:(UIControl *)control {
@@ -123,15 +116,29 @@
 
     [view addSubview:customView];
 
-    customView.center = CGPointMake(view.bounds.size.width*0.5f, -view.bounds.size.height*0.8f);
+    customView.center = CGPointMake(view.bounds.size.width*0.5f, -view.bounds.size.height*0.6f);
     
 }
--(void)bookNowButtonClicked:(id)sender {
-    
+-(void)bookNowButtonClicked:(UIButton *)sender {
+    if ([sender.titleLabel.text isEqualToString:@"Book Now"]) {
+        [sender setTitle:@"Requested" forState:UIControlStateNormal];
+        [self performSelector:@selector(response1:) withObject:sender afterDelay:5.0];
+    } else if ([sender.titleLabel.text isEqualToString:@"Pay 10%"]) {
+        [sender setTitle:@"Waiting" forState:UIControlStateNormal];
+        [self performSelector:@selector(response2:) withObject:sender afterDelay:5.0];
+    }
+}
+
+-(void)response2:(UIButton *)sender  {
+    [sender setTitle:@"Booked" forState:UIControlStateNormal];
+}
+
+-(void)response1:(UIButton *)sender  {
+    [sender setTitle:@"Pay 10%" forState:UIControlStateNormal];
 }
 
 -(void)friendsButtonClicked:(id)sender {
-    
+    [self performSegueWithIdentifier:@"friend" sender:nil];
 }
 -(void)readSurvyes {
     NSString *path = [[NSBundle mainBundle]pathForResource:@"MapLocations" ofType:@"json"];

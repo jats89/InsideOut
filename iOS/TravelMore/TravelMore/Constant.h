@@ -11,6 +11,6 @@
 #define APP_FONT_BOLD                @"GillSans-Bold"
 #define APP_FONT                @"GillSans"
 #define APP_FONT_LIGHT          @"GillSans-Light"
-
+#define Delay 0
 
 #endif
