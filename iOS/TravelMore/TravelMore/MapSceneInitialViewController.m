@@ -14,8 +14,7 @@
 #import "TRMCustomAnnotationView.h"
 
 
-
-@interface MapSceneInitialViewController ()<MKMapViewDelegate>  {
+@interface MapSceneInitialViewController ()<MKMapViewDelegate, FriendControlProtocol, MapControlDelegate>  {
     UIView *selectedAccesoryView;
 }
 @property (nonatomic, weak)IBOutlet MKMapView *mapView;
@@ -41,8 +40,6 @@
 - (MKAnnotationView *)mapView:(MKMapView *)mapView
             viewForAnnotation:(id < MKAnnotation >)annotation
 {
-    //    if([annotation class] == MKUserLocation.class)
-    //        return nil;
     NSString *pinIdentifier = @"pin";
     
     
@@ -56,6 +53,15 @@
     annotationView.calloutOffset = CGPointMake(-5, -5);
     
     return annotationView;
+}
+
+-(void)tapped   {
+    NSLog(@"friend tapped");
+}
+
+-(void)tappedMap    {
+    NSLog(@"Pick now tapped ");
+    [UIViewController sendNotificationWithTitle:@"ad" msg:@""];
 }
 
 - (void)mapView:(MKMapView *)mv annotationView:(MKAnnotationView *)pin calloutAccessoryControlTapped:(UIControl *)control {

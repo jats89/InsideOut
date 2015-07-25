@@ -1,14 +1,14 @@
 //
-//  MapControl.m
+//  FriendControl.m
 //  TravelMore
 //
-//  Created by Kumar Malana, Jatin on 25/07/15.
+//  Created by Madan, Bunty on 25/07/15.
 //  Copyright (c) 2015 Kumar Malana, Jatin. All rights reserved.
 //
 
-#import "MapControl.h"
+#import "FriendControl.h"
 
-@implementation MapControl
+@implementation FriendControl
 
 -(void)setUp    {
     UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(handleTap)];
@@ -17,6 +17,6 @@
 }
 
 -(void)handleTap   {
-    [self.delegate tappedMap];
+    [self.delegate tapped];
 }
 @end

@@ -103,17 +103,17 @@
 }
 
 -(IBAction)facebookAction:(id)sender    {
-    [FBSDKAccessToken setCurrentAccessToken:nil];
-    FBSDKLoginManager *login = [[FBSDKLoginManager alloc] init];
-    [login logInWithReadPermissions:@[@"email",@"user_friends"] handler:^(FBSDKLoginManagerLoginResult *result, NSError *error) {
-        if (error) {
-            NSLog(@"Error");
-        } else if (result.isCancelled) {
-            NSLog(@"Cancel Pressed");
-        } else {
+//    [FBSDKAccessToken setCurrentAccessToken:nil];
+//    FBSDKLoginManager *login = [[FBSDKLoginManager alloc] init];
+//    [login logInWithReadPermissions:@[@"email",@"user_friends"] handler:^(FBSDKLoginManagerLoginResult *result, NSError *error) {
+//        if (error) {
+//            NSLog(@"Error");
+//        } else if (result.isCancelled) {
+//            NSLog(@"Cancel Pressed");
+//        } else {
             [self showHome];
-        }
-    }];
+//        }
+//    }];
 }
 
 -(void)showHome {
@@ -123,5 +123,6 @@
     
     
     
-}
+
+    }
 @end

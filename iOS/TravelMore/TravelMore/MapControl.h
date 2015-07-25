@@ -7,7 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
-
+@class MapControl;
+@protocol MapControlDelegate <NSObject>
+-(void)tappedMap;
+@end
 @interface MapControl : UIControl
 @property (nonatomic, strong)IBOutlet UIActivityIndicatorView *activityIndicator;
 @property (nonatomic, strong)IBOutlet UILabel *infoLabel;
