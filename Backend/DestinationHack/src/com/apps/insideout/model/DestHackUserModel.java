@@ -14,8 +14,7 @@ public class DestHackUserModel {
 	private String name = null;
 	private String fbId = null;
 	private String currentLoc= null; //This can remain null as well
-	private String uId = null;
-	
+		
 	public DestHackUserModel(String name, String fbId, String currentLoc) {
 	
 		this.setName(name);
@@ -43,12 +42,4 @@ public class DestHackUserModel {
 		this.currentLoc = currentLoc;
 	}
 	
-	public String getUId() {
-		//TODO need per basis implementation
-		//should be fetched from DB when required
-		//if not found the create a new DB entry
-		
-		return uId;
-	}
-
 }
