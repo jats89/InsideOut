@@ -14,6 +14,11 @@
 		450841D71B6364E200249E5B /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 450841D61B6364E200249E5B /* Images.xcassets */; };
 		450841DA1B6364E200249E5B /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 450841D81B6364E200249E5B /* LaunchScreen.xib */; };
 		450841E61B6364E200249E5B /* TravelMoreTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 450841E51B6364E200249E5B /* TravelMoreTests.m */; };
+		B5340EAF1B6369DB00A24775 /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B5340EAE1B6369DB00A24775 /* Login.storyboard */; };
+		B5340EB31B636A5700A24775 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B5340EB21B636A5700A24775 /* LoginViewController.m */; };
+		B5340EBB1B6373AE00A24775 /* NSObject+Helper.m in Sources */ = {isa = PBXBuildFile; fileRef = B5340EBA1B6373AE00A24775 /* NSObject+Helper.m */; };
+		B5340EBE1B6373F100A24775 /* UIView+Helper.m in Sources */ = {isa = PBXBuildFile; fileRef = B5340EBD1B6373F100A24775 /* UIView+Helper.m */; };
+		B5340EC11B63745200A24775 /* UIColor+Helper.m in Sources */ = {isa = PBXBuildFile; fileRef = B5340EC01B63745200A24775 /* UIColor+Helper.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,6 +45,15 @@
 		450841DF1B6364E200249E5B /* TravelMoreTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TravelMoreTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		450841E41B6364E200249E5B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		450841E51B6364E200249E5B /* TravelMoreTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TravelMoreTests.m; sourceTree = "<group>"; };
+		B5340EAE1B6369DB00A24775 /* Login.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Login.storyboard; sourceTree = "<group>"; };
+		B5340EB11B636A5700A24775 /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
+		B5340EB21B636A5700A24775 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
+		B5340EB91B6373AE00A24775 /* NSObject+Helper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+Helper.h"; sourceTree = "<group>"; };
+		B5340EBA1B6373AE00A24775 /* NSObject+Helper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+Helper.m"; sourceTree = "<group>"; };
+		B5340EBC1B6373F100A24775 /* UIView+Helper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Helper.h"; sourceTree = "<group>"; };
+		B5340EBD1B6373F100A24775 /* UIView+Helper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Helper.m"; sourceTree = "<group>"; };
+		B5340EBF1B63745200A24775 /* UIColor+Helper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+Helper.h"; sourceTree = "<group>"; };
+		B5340EC01B63745200A24775 /* UIColor+Helper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+Helper.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,6 +95,7 @@
 		450841C81B6364E200249E5B /* TravelMore */ = {
 			isa = PBXGroup;
 			children = (
+				B5340EC21B63746600A24775 /* Helper */,
 				450841CD1B6364E200249E5B /* AppDelegate.h */,
 				450841CE1B6364E200249E5B /* AppDelegate.m */,
 				450841D01B6364E200249E5B /* ViewController.h */,
@@ -89,6 +104,9 @@
 				450841D61B6364E200249E5B /* Images.xcassets */,
 				450841D81B6364E200249E5B /* LaunchScreen.xib */,
 				450841C91B6364E200249E5B /* Supporting Files */,
+				B5340EAE1B6369DB00A24775 /* Login.storyboard */,
+				B5340EB11B636A5700A24775 /* LoginViewController.h */,
+				B5340EB21B636A5700A24775 /* LoginViewController.m */,
 			);
 			path = TravelMore;
 			sourceTree = "<group>";
@@ -117,6 +135,19 @@
 				450841E41B6364E200249E5B /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		B5340EC21B63746600A24775 /* Helper */ = {
+			isa = PBXGroup;
+			children = (
+				B5340EB91B6373AE00A24775 /* NSObject+Helper.h */,
+				B5340EBA1B6373AE00A24775 /* NSObject+Helper.m */,
+				B5340EBC1B6373F100A24775 /* UIView+Helper.h */,
+				B5340EBD1B6373F100A24775 /* UIView+Helper.m */,
+				B5340EBF1B63745200A24775 /* UIColor+Helper.h */,
+				B5340EC01B63745200A24775 /* UIColor+Helper.m */,
+			);
+			name = Helper;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -199,6 +230,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B5340EAF1B6369DB00A24775 /* Login.storyboard in Resources */,
 				450841D51B6364E200249E5B /* Main.storyboard in Resources */,
 				450841DA1B6364E200249E5B /* LaunchScreen.xib in Resources */,
 				450841D71B6364E200249E5B /* Images.xcassets in Resources */,
@@ -219,7 +251,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B5340EB31B636A5700A24775 /* LoginViewController.m in Sources */,
+				B5340EBB1B6373AE00A24775 /* NSObject+Helper.m in Sources */,
+				B5340EBE1B6373F100A24775 /* UIView+Helper.m in Sources */,
 				450841D21B6364E200249E5B /* ViewController.m in Sources */,
+				B5340EC11B63745200A24775 /* UIColor+Helper.m in Sources */,
 				450841CF1B6364E200249E5B /* AppDelegate.m in Sources */,
 				450841CC1B6364E200249E5B /* main.m in Sources */,
 			);
@@ -350,6 +386,7 @@
 				INFOPLIST_FILE = TravelMore/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
@@ -360,6 +397,7 @@
 				INFOPLIST_FILE = TravelMore/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};
@@ -416,6 +454,7 @@
 				450841EB1B6364E200249E5B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		450841EC1B6364E200249E5B /* Build configuration list for PBXNativeTarget "TravelMoreTests" */ = {
 			isa = XCConfigurationList;
@@ -424,6 +463,7 @@
 				450841EE1B6364E200249E5B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

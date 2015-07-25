@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14E46" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="ahY-ub-nZ5">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
+    </dependencies>
+    <scenes>
+        <!--Login View Controller-->
+        <scene sceneID="Y9J-HD-2b6">
+            <objects>
+                <viewController storyboardIdentifier="logIn" useStoryboardIdentifierAsRestorationIdentifier="YES" id="ahY-ub-nZ5" customClass="LoginViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="gge-UD-2Ko"/>
+                        <viewControllerLayoutGuide type="bottom" id="pvd-OD-5or"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="A1J-32-v52">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" alpha="0.0" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bg_3_blur" translatesAutoresizingMaskIntoConstraints="NO" id="OKc-Qt-gm0">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" alpha="0.0" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bg_2_blur" translatesAutoresizingMaskIntoConstraints="NO" id="eKP-ld-Yg6">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bg_1_blur" translatesAutoresizingMaskIntoConstraints="NO" id="ZYf-js-T4U">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="eKP-ld-Yg6" firstAttribute="bottom" secondItem="pvd-OD-5or" secondAttribute="top" id="0Z0-lG-618"/>
+                            <constraint firstAttribute="trailing" secondItem="eKP-ld-Yg6" secondAttribute="trailing" id="Auy-UB-0XI"/>
+                            <constraint firstItem="eKP-ld-Yg6" firstAttribute="top" secondItem="OKc-Qt-gm0" secondAttribute="top" id="B6w-yw-91A"/>
+                            <constraint firstItem="pvd-OD-5or" firstAttribute="top" secondItem="OKc-Qt-gm0" secondAttribute="bottom" id="E0p-Z8-Heh"/>
+                            <constraint firstItem="pvd-OD-5or" firstAttribute="top" secondItem="eKP-ld-Yg6" secondAttribute="bottom" id="Iun-Fz-pNA"/>
+                            <constraint firstAttribute="trailing" secondItem="OKc-Qt-gm0" secondAttribute="trailing" id="KUD-1z-qq7"/>
+                            <constraint firstItem="ZYf-js-T4U" firstAttribute="top" secondItem="gge-UD-2Ko" secondAttribute="bottom" constant="-20" id="Sou-6m-YLA"/>
+                            <constraint firstAttribute="trailing" secondItem="ZYf-js-T4U" secondAttribute="trailing" id="Swm-fa-Cww"/>
+                            <constraint firstItem="eKP-ld-Yg6" firstAttribute="leading" secondItem="OKc-Qt-gm0" secondAttribute="leading" id="U98-Ll-h5L"/>
+                            <constraint firstItem="eKP-ld-Yg6" firstAttribute="bottom" secondItem="ZYf-js-T4U" secondAttribute="bottom" id="VyZ-V4-loc"/>
+                            <constraint firstItem="OKc-Qt-gm0" firstAttribute="leading" secondItem="A1J-32-v52" secondAttribute="leading" id="X2q-Nk-BUI"/>
+                            <constraint firstItem="ZYf-js-T4U" firstAttribute="leading" secondItem="A1J-32-v52" secondAttribute="leading" id="Xkk-X9-nyG"/>
+                            <constraint firstItem="OKc-Qt-gm0" firstAttribute="top" secondItem="gge-UD-2Ko" secondAttribute="bottom" constant="-20" id="Zvl-Jq-JJA"/>
+                            <constraint firstItem="eKP-ld-Yg6" firstAttribute="top" secondItem="gge-UD-2Ko" secondAttribute="bottom" constant="-20" id="aKq-Wb-JJz"/>
+                            <constraint firstItem="pvd-OD-5or" firstAttribute="top" secondItem="ZYf-js-T4U" secondAttribute="bottom" id="aSS-Et-isI"/>
+                            <constraint firstItem="eKP-ld-Yg6" firstAttribute="trailing" secondItem="OKc-Qt-gm0" secondAttribute="trailing" id="bA3-hC-zFG"/>
+                            <constraint firstAttribute="trailing" secondItem="eKP-ld-Yg6" secondAttribute="trailing" id="bFr-gC-Oqk"/>
+                            <constraint firstItem="eKP-ld-Yg6" firstAttribute="top" secondItem="ZYf-js-T4U" secondAttribute="top" id="btL-Rg-pdQ"/>
+                            <constraint firstItem="eKP-ld-Yg6" firstAttribute="leading" secondItem="ZYf-js-T4U" secondAttribute="leading" id="cjo-kP-FaK"/>
+                            <constraint firstItem="eKP-ld-Yg6" firstAttribute="trailing" secondItem="ZYf-js-T4U" secondAttribute="trailing" id="iPO-Cm-laY"/>
+                            <constraint firstItem="eKP-ld-Yg6" firstAttribute="bottom" secondItem="OKc-Qt-gm0" secondAttribute="bottom" id="rTg-oc-r0w"/>
+                            <constraint firstItem="eKP-ld-Yg6" firstAttribute="leading" secondItem="A1J-32-v52" secondAttribute="leading" id="tsQ-NZ-PrH"/>
+                            <constraint firstItem="eKP-ld-Yg6" firstAttribute="leading" secondItem="A1J-32-v52" secondAttribute="leading" id="wCQ-vO-6mY"/>
+                            <constraint firstItem="eKP-ld-Yg6" firstAttribute="top" secondItem="A1J-32-v52" secondAttribute="top" id="wQC-xr-qKv"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="KUD-1z-qq7"/>
+                                <exclude reference="X2q-Nk-BUI"/>
+                                <exclude reference="Zvl-Jq-JJA"/>
+                                <exclude reference="Sou-6m-YLA"/>
+                                <exclude reference="Swm-fa-Cww"/>
+                                <exclude reference="Xkk-X9-nyG"/>
+                                <exclude reference="Auy-UB-0XI"/>
+                                <exclude reference="aKq-Wb-JJz"/>
+                                <exclude reference="tsQ-NZ-PrH"/>
+                                <exclude reference="E0p-Z8-Heh"/>
+                                <exclude reference="Iun-Fz-pNA"/>
+                                <exclude reference="aSS-Et-isI"/>
+                            </mask>
+                        </variation>
+                        <variation key="heightClass=regular-widthClass=regular">
+                            <mask key="subviews">
+                                <include reference="OKc-Qt-gm0"/>
+                                <include reference="eKP-ld-Yg6"/>
+                            </mask>
+                            <mask key="constraints">
+                                <include reference="KUD-1z-qq7"/>
+                                <include reference="X2q-Nk-BUI"/>
+                                <include reference="Zvl-Jq-JJA"/>
+                                <include reference="Sou-6m-YLA"/>
+                                <include reference="Swm-fa-Cww"/>
+                                <include reference="Xkk-X9-nyG"/>
+                                <include reference="Auy-UB-0XI"/>
+                                <include reference="aKq-Wb-JJz"/>
+                                <include reference="tsQ-NZ-PrH"/>
+                                <include reference="E0p-Z8-Heh"/>
+                                <include reference="Iun-Fz-pNA"/>
+                                <include reference="aSS-Et-isI"/>
+                            </mask>
+                        </variation>
+                    </view>
+                    <navigationItem key="navigationItem" id="vyh-b5-vrV"/>
+                    <connections>
+                        <outlet property="myImage1" destination="ZYf-js-T4U" id="5Y4-Yd-KOk"/>
+                        <outlet property="myImage2" destination="eKP-ld-Yg6" id="AE6-iF-YqE"/>
+                        <outlet property="myImage3" destination="OKc-Qt-gm0" id="ENN-63-spf"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ijY-wB-dWC" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1067.25" y="389.25"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="bg_1_blur" width="2560" height="1600"/>
+        <image name="bg_2_blur" width="284" height="177"/>
+        <image name="bg_3_blur" width="278" height="181"/>
+    </resources>
+</document>
