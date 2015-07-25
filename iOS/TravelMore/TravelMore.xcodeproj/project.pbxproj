@@ -64,7 +64,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D19CF96D062121EF88A8D91F /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -92,8 +91,8 @@
 				450841C81B6364E200249E5B /* TravelMore */,
 				450841E21B6364E200249E5B /* TravelMoreTests */,
 				450841C71B6364E200249E5B /* Products */,
-				960A9A978ED6E02743F21E0C /* Pods */,
 				2DB018EF8D7B0FE6BCBE87B2 /* Frameworks */,
+				B5312D661B63836700198D94 /* Recovered References */,
 			);
 			sourceTree = "<group>";
 		};
@@ -151,6 +150,15 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		B5312D661B63836700198D94 /* Recovered References */ = {
+			isa = PBXGroup;
+			children = (
+				1B5DDB766531C375E897082F /* Pods.debug.xcconfig */,
+				38F9BE49F26F88356A322FA9 /* Pods.release.xcconfig */,
+			);
+			name = "Recovered References";
+			sourceTree = "<group>";
+		};
 		B5340EC21B63746600A24775 /* Helper */ = {
 			isa = PBXGroup;
 			children = (
@@ -171,11 +179,9 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 450841E91B6364E200249E5B /* Build configuration list for PBXNativeTarget "TravelMore" */;
 			buildPhases = (
-				549470C96DCD2CDCE1FC33FA /* Check Pods Manifest.lock */,
 				450841C21B6364E200249E5B /* Sources */,
 				450841C31B6364E200249E5B /* Frameworks */,
 				450841C41B6364E200249E5B /* Resources */,
-				EC5628AC5061F5DE0A1C33CF /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -249,7 +255,6 @@
 				B5340EAF1B6369DB00A24775 /* Login.storyboard in Resources */,
 				450841D51B6364E200249E5B /* Main.storyboard in Resources */,
 				450841DA1B6364E200249E5B /* LaunchScreen.xib in Resources */,
-				450841F01B636B1900249E5B /* MapScene.storyboard in Resources */,
 				450841D71B6364E200249E5B /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -262,39 +267,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
-
-/* Begin PBXShellScriptBuildPhase section */
-		549470C96DCD2CDCE1FC33FA /* Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Check Pods Manifest.lock";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
-			showEnvVarsInLog = 0;
-		};
-		EC5628AC5061F5DE0A1C33CF /* Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		450841C21B6364E200249E5B /* Sources */ = {

@@ -1,6 +1,0 @@
-pod 'RestKit', '~> 0.24.0'
-pod ‘FBSDKCoreKit’
-pod ‘FBSDKLoginKit’
-pod ‘FBSDKShareKit’
-
-
