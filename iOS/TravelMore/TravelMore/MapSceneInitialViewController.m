@@ -164,6 +164,11 @@
         [view addSubview:customView];
         
         customView.center = CGPointMake(view.bounds.size.width*0.5f, -view.bounds.size.height*0.6f);
+   
+        UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(showDetail:)];
+        tap.numberOfTapsRequired = 1;
+        customView.titlelabel.userInteractionEnabled = true;
+        [customView.titlelabel addGestureRecognizer:tap];
     }
 }
 
