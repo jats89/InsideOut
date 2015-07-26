@@ -13,7 +13,9 @@
 #import "TRCustomAnnotationView.h"
 #import "TRMCustomAnnotationView.h"
 #import "FriendControl.h"
-
+#import "Constant.h"
+#import "JTSImageInfo.h"
+#import "JTSImageViewController.h"
 
 
 @interface MapSceneInitialViewController ()<MKMapViewDelegate>  {
@@ -109,6 +111,11 @@
     customView.layer.cornerRadius = 10.0f;
     customView.layer.masksToBounds = true;
     customView.titlelabel.text = [view.annotation title];
+    
+    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(showDetail:)];
+    tap.numberOfTapsRequired = 1;
+    [customView addGestureRecognizer:tap];
+    
     customView.subTitlelabel.text = [view.annotation subtitle];
     [customView.bookNowButton addTarget:self action:@selector(bookNowButtonClicked:) forControlEvents:UIControlEventTouchUpInside];
     [customView.friendsButton addTarget:self action:@selector(friendsButtonClicked:) forControlEvents:UIControlEventTouchUpInside];
@@ -119,13 +126,32 @@
     customView.center = CGPointMake(view.bounds.size.width*0.5f, -view.bounds.size.height*0.6f);
     
 }
+
+-(IBAction)showDetail:(UITapGestureRecognizer *)sender    {
+    JTSImageInfo *imageInfo = [[JTSImageInfo alloc] init];
+        imageInfo.image = [UIImage imageNamed:@"rooftop2.jpg"];
+    imageInfo.referenceRect = sender.view.frame;
+    imageInfo.referenceView = sender.view.superview;
+    imageInfo.referenceContentMode = sender.view.contentMode;
+    imageInfo.referenceCornerRadius = sender.view.layer.cornerRadius;
+    
+    // Setup view controller
+    JTSImageViewController *imageViewer = [[JTSImageViewController alloc]
+                                           initWithImageInfo:imageInfo
+                                           mode:JTSImageViewControllerMode_Image
+                                           backgroundStyle:JTSImageViewControllerBackgroundOption_Scaled];
+    
+    // Present the view controller.
+    [imageViewer showFromViewController:self transition:JTSImageViewControllerTransition_FromOriginalPosition];
+}
+
 -(void)bookNowButtonClicked:(UIButton *)sender {
     if ([sender.titleLabel.text isEqualToString:@"Book Now"]) {
         [sender setTitle:@"Requested" forState:UIControlStateNormal];
-        [self performSelector:@selector(response1:) withObject:sender afterDelay:5.0];
+        [self performSelector:@selector(response1:) withObject:sender afterDelay:Delay];
     } else if ([sender.titleLabel.text isEqualToString:@"Pay 10%"]) {
         [sender setTitle:@"Waiting" forState:UIControlStateNormal];
-        [self performSelector:@selector(response2:) withObject:sender afterDelay:5.0];
+        [self performSelector:@selector(response2:) withObject:sender afterDelay:Delay];
     }
 }
 
