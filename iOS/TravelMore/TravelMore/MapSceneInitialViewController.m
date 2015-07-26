@@ -83,7 +83,7 @@
         annotationView.image = [UIImage imageNamed:@"user"];
         
     }
-    annotationView.calloutOffset = CGPointMake(-5, -5);
+    
     
     return annotationView;
 }
@@ -148,6 +148,9 @@
                                                                             owner:self
                                                                           options:nil]
                                               objectAtIndex:0];
+        CLLocationCoordinate2D center = [view.annotation coordinate];
+        center.latitude -= self.mapView.region.span.latitudeDelta * 0.20;
+        [self.mapView setCenterCoordinate:center animated:YES];
         customView.frame = CGRectMake(0, 0, 300, 60);
         customView.layer.cornerRadius = 10.0f;
         customView.layer.masksToBounds = true;
@@ -189,7 +192,7 @@
 
 -(void)response2:(UIButton *)sender  {
     [sender setTitle:@"Booked" forState:UIControlStateNormal];
-    [self performSelector:@selector(deselectAllAnnotationa) withObject:nil afterDelay:2];
+   
     
     
     self.notifTimer = [NSTimer scheduledTimerWithTimeInterval:5 target:self selector:@selector(notifTimerInvoked) userInfo:nil repeats:false];
@@ -210,6 +213,7 @@
             if ([response routes].count >0) {
                 MKRoute *route = [response routes][0];
                 [self.mapView addOverlay:[route polyline] level:MKOverlayLevelAboveRoads];
+                 [self deselectAllAnnotationa];
             }
         }
     }];
