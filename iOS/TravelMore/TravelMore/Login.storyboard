@@ -27,10 +27,33 @@
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                             </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gAO-gS-8tH">
-                                <rect key="frame" x="16" y="168" width="568" height="264"/>
+                                <rect key="frame" x="16" y="98" width="568" height="404"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Terillion-App-Icon_copy.png" translatesAutoresizingMaskIntoConstraints="NO" id="o52-zL-nu6">
+                                        <rect key="frame" x="233" y="140" width="102" height="102"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="102" id="4Pw-Yq-KUU"/>
+                                            <constraint firstAttribute="height" constant="102" id="tUp-M3-DRb"/>
+                                        </constraints>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Quick Book" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LdB-6b-12x">
+                                        <rect key="frame" x="8" y="8" width="552" height="52"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="52" id="d7J-0P-4iD"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="32"/>
+                                        <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="264" id="akZ-OZ-KV7"/>
+                                    <constraint firstItem="LdB-6b-12x" firstAttribute="top" secondItem="gAO-gS-8tH" secondAttribute="top" constant="8" id="38L-W8-O5b"/>
+                                    <constraint firstItem="o52-zL-nu6" firstAttribute="top" secondItem="gAO-gS-8tH" secondAttribute="top" constant="140" id="Oe4-4l-k7n"/>
+                                    <constraint firstAttribute="trailing" secondItem="LdB-6b-12x" secondAttribute="trailing" constant="8" id="Tag-hr-U4e"/>
+                                    <constraint firstAttribute="height" constant="404" id="akZ-OZ-KV7"/>
+                                    <constraint firstItem="LdB-6b-12x" firstAttribute="leading" secondItem="gAO-gS-8tH" secondAttribute="leading" constant="8" id="oiM-Gx-TLg"/>
+                                    <constraint firstAttribute="centerX" secondItem="o52-zL-nu6" secondAttribute="centerX" id="ytM-wo-OnG"/>
                                 </constraints>
                             </view>
                         </subviews>
@@ -492,6 +515,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="Terillion-App-Icon_copy.png" width="1178" height="1166"/>
         <image name="bg_1_blur" width="2560" height="1600"/>
         <image name="bg_2_blur" width="284" height="177"/>
         <image name="bg_3_blur" width="278" height="181"/>

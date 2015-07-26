@@ -30,6 +30,7 @@
 
 @property (nonatomic, weak) IBOutlet JVFloatLabeledTextField *username;
 @property (nonatomic, weak) IBOutlet JVFloatLabeledTextField *password;
+@property (nonatomic) BOOL isLoaded;
 @end
 
 @implementation LoginViewController
@@ -42,18 +43,24 @@
                                                 userInfo:nil repeats:YES];
     _username.placeholder = @"Username";
     _password.placeholder = @"Password";
-    
-    _logInButton = [[DeformationButton alloc]initWithFrame:CGRectMake(0,0,370, 40) withColor:[UIColor redColor]];
-    [self.coverView addSubview:_logInButton];
-    [_logInButton.forDisplayButton.titleLabel setFont:[UIFont fontWithName:APP_FONT_BOLD size:20.0]];
-    [_logInButton.forDisplayButton setTitle:@"Login With Facebook" forState:UIControlStateNormal];
-    [_logInButton.forDisplayButton.titleLabel setFont:[UIFont systemFontOfSize:15]];
-    [_logInButton.forDisplayButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
-    [_logInButton.forDisplayButton setTitleEdgeInsets:UIEdgeInsetsMake(0, 6, 0, 0)];
-    [_logInButton.forDisplayButton setImage:[UIImage imageNamed:@"微博logo.png"] forState:UIControlStateNormal];
-    
-    
-    [_logInButton addTarget:self action:@selector(responder) forControlEvents:UIControlEventTouchUpInside];
+}
+
+-(void)viewDidLayoutSubviews    {
+    [super viewDidLayoutSubviews];
+    if (!_isLoaded) {
+        _isLoaded = true;
+        _logInButton = [[DeformationButton alloc]initWithFrame:CGRectMake(10,350,self.coverView.bounds.size.width-20, 40) withColor:[UIColor redColor]];
+        [self.coverView addSubview:_logInButton];
+        [_logInButton.forDisplayButton.titleLabel setFont:[UIFont fontWithName:APP_FONT_BOLD size:20.0]];
+        [_logInButton.forDisplayButton setTitle:@"Login With Facebook" forState:UIControlStateNormal];
+        [_logInButton.forDisplayButton.titleLabel setFont:[UIFont systemFontOfSize:15]];
+        [_logInButton.forDisplayButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+        [_logInButton.forDisplayButton setTitleEdgeInsets:UIEdgeInsetsMake(0, 6, 0, 0)];
+        [_logInButton.forDisplayButton setImage:[UIImage imageNamed:@"微博logo.png"] forState:UIControlStateNormal];
+        
+        
+        [_logInButton addTarget:self action:@selector(responder) forControlEvents:UIControlEventTouchUpInside];
+    }
 }
 
 -(void)responder    {

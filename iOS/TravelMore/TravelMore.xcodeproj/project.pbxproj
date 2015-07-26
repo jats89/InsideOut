@@ -71,6 +71,8 @@
 		B53AE3891B64269C00CDC128 /* JTSAnimatedGIFUtility.m in Sources */ = {isa = PBXBuildFile; fileRef = B53AE3811B64269C00CDC128 /* JTSAnimatedGIFUtility.m */; };
 		B53AE38A1B64269C00CDC128 /* UIImage+JTSImageEffects.m in Sources */ = {isa = PBXBuildFile; fileRef = B53AE3831B64269C00CDC128 /* UIImage+JTSImageEffects.m */; };
 		B53AE38B1B64269C00CDC128 /* UIApplication+JTSImageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B53AE3851B64269C00CDC128 /* UIApplication+JTSImageViewController.m */; };
+		B53AE38E1B64882500CDC128 /* Terillion-App-Icon_copy.png in Resources */ = {isa = PBXBuildFile; fileRef = B53AE38D1B64882500CDC128 /* Terillion-App-Icon_copy.png */; };
+		B53AE3901B648A0C00CDC128 /* FBlogin.png in Resources */ = {isa = PBXBuildFile; fileRef = B53AE38F1B648A0C00CDC128 /* FBlogin.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -87,7 +89,7 @@
 		14B9A8A46EDA37DCAB65C637 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		1B5DDB766531C375E897082F /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		38F9BE49F26F88356A322FA9 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
-		450841C61B6364E200249E5B /* TravelMore.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TravelMore.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		450841C61B6364E200249E5B /* Quick Book.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Quick Book.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		450841CA1B6364E200249E5B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		450841CB1B6364E200249E5B /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		450841CD1B6364E200249E5B /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -193,6 +195,8 @@
 		B53AE3831B64269C00CDC128 /* UIImage+JTSImageEffects.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+JTSImageEffects.m"; sourceTree = "<group>"; };
 		B53AE3841B64269C00CDC128 /* UIApplication+JTSImageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIApplication+JTSImageViewController.h"; sourceTree = "<group>"; };
 		B53AE3851B64269C00CDC128 /* UIApplication+JTSImageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIApplication+JTSImageViewController.m"; sourceTree = "<group>"; };
+		B53AE38D1B64882500CDC128 /* Terillion-App-Icon_copy.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Terillion-App-Icon_copy.png"; sourceTree = "<group>"; };
+		B53AE38F1B648A0C00CDC128 /* FBlogin.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = FBlogin.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -250,7 +254,7 @@
 		450841C71B6364E200249E5B /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				450841C61B6364E200249E5B /* TravelMore.app */,
+				450841C61B6364E200249E5B /* Quick Book.app */,
 				450841DF1B6364E200249E5B /* TravelMoreTests.xctest */,
 			);
 			name = Products;
@@ -270,6 +274,8 @@
 				B5340EC21B63746600A24775 /* Helper */,
 				450841CD1B6364E200249E5B /* AppDelegate.h */,
 				450841CE1B6364E200249E5B /* AppDelegate.m */,
+				B53AE38F1B648A0C00CDC128 /* FBlogin.png */,
+				B53AE38D1B64882500CDC128 /* Terillion-App-Icon_copy.png */,
 				450841D01B6364E200249E5B /* ViewController.h */,
 				450841D11B6364E200249E5B /* ViewController.m */,
 				B53AE36B1B63F6B100CDC128 /* Screen Shot 2015-07-25 at 10.22.39 pm.png */,
@@ -487,7 +493,7 @@
 			);
 			name = TravelMore;
 			productName = TravelMore;
-			productReference = 450841C61B6364E200249E5B /* TravelMore.app */;
+			productReference = 450841C61B6364E200249E5B /* Quick Book.app */;
 			productType = "com.apple.product-type.application";
 		};
 		450841DE1B6364E200249E5B /* TravelMoreTests */ = {
@@ -565,6 +571,8 @@
 				450841DA1B6364E200249E5B /* LaunchScreen.xib in Resources */,
 				B53AE36A1B63F4FC00CDC128 /* fri.json in Resources */,
 				B53AE36C1B63F6B100CDC128 /* Screen Shot 2015-07-25 at 10.22.39 pm.png in Resources */,
+				B53AE3901B648A0C00CDC128 /* FBlogin.png in Resources */,
+				B53AE38E1B64882500CDC128 /* Terillion-App-Icon_copy.png in Resources */,
 				450842091B63A53E00249E5B /* MapControl.xib in Resources */,
 				4508421E1B63B52600249E5B /* MenuViewController.xib in Resources */,
 				4508420B1B63A54900249E5B /* MapLocations.json in Resources */,
@@ -756,7 +764,7 @@
 				);
 				INFOPLIST_FILE = TravelMore/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "Quick Book";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -772,7 +780,7 @@
 				);
 				INFOPLIST_FILE = TravelMore/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "Quick Book";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
