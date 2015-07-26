@@ -27,6 +27,9 @@
 		450842261B63D14200249E5B /* TRCustomAnnotationView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 450842251B63D14200249E5B /* TRCustomAnnotationView.xib */; };
 		450842291B63E5BA00249E5B /* TRMCustomAnnotationView.m in Sources */ = {isa = PBXBuildFile; fileRef = 450842281B63E5BA00249E5B /* TRMCustomAnnotationView.m */; };
 		4508422B1B63E9DD00249E5B /* DrawingPin1_Blue.png in Resources */ = {isa = PBXBuildFile; fileRef = 4508422A1B63E9DD00249E5B /* DrawingPin1_Blue.png */; };
+		450842301B63F9D000249E5B /* TGLCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4508422F1B63F9D000249E5B /* TGLCollectionViewCell.m */; };
+		450842341B64038000249E5B /* MPGNotification.m in Sources */ = {isa = PBXBuildFile; fileRef = 450842331B64038000249E5B /* MPGNotification.m */; };
+		4543EF841B641BA300F45016 /* TMDynamic.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4543EF831B641BA300F45016 /* TMDynamic.plist */; };
 		B5340EAF1B6369DB00A24775 /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B5340EAE1B6369DB00A24775 /* Login.storyboard */; };
 		B5340EB31B636A5700A24775 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B5340EB21B636A5700A24775 /* LoginViewController.m */; };
 		B5340EBB1B6373AE00A24775 /* NSObject+Helper.m in Sources */ = {isa = PBXBuildFile; fileRef = B5340EBA1B6373AE00A24775 /* NSObject+Helper.m */; };
@@ -54,7 +57,6 @@
 		B53AE35F1B63D18900CDC128 /* UIViewController+Helper.m in Sources */ = {isa = PBXBuildFile; fileRef = B53AE35E1B63D18900CDC128 /* UIViewController+Helper.m */; };
 		B53AE3631B63E02500CDC128 /* 3-5-stars.png in Resources */ = {isa = PBXBuildFile; fileRef = B53AE3621B63E02500CDC128 /* 3-5-stars.png */; };
 		B53AE3651B63E07E00CDC128 /* white_star_u2606_icon_256x256.png in Resources */ = {isa = PBXBuildFile; fileRef = B53AE3641B63E07E00CDC128 /* white_star_u2606_icon_256x256.png */; };
-		B53AE3681B63F47B00CDC128 /* TGLCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B53AE3671B63F47B00CDC128 /* TGLCollectionViewCell.m */; };
 		B53AE36A1B63F4FC00CDC128 /* fri.json in Resources */ = {isa = PBXBuildFile; fileRef = B53AE3691B63F4FC00CDC128 /* fri.json */; };
 		B53AE36C1B63F6B100CDC128 /* Screen Shot 2015-07-25 at 10.22.39 pm.png in Resources */ = {isa = PBXBuildFile; fileRef = B53AE36B1B63F6B100CDC128 /* Screen Shot 2015-07-25 at 10.22.39 pm.png */; };
 		B53AE36E1B63F83200CDC128 /* images (3).jpeg in Resources */ = {isa = PBXBuildFile; fileRef = B53AE36D1B63F83200CDC128 /* images (3).jpeg */; };
@@ -119,6 +121,12 @@
 		450842271B63E5BA00249E5B /* TRMCustomAnnotationView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TRMCustomAnnotationView.h; sourceTree = "<group>"; };
 		450842281B63E5BA00249E5B /* TRMCustomAnnotationView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TRMCustomAnnotationView.m; sourceTree = "<group>"; };
 		4508422A1B63E9DD00249E5B /* DrawingPin1_Blue.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = DrawingPin1_Blue.png; sourceTree = "<group>"; };
+		4508422C1B63F99000249E5B /* fri.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = fri.json; sourceTree = "<group>"; };
+		4508422E1B63F9D000249E5B /* TGLCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TGLCollectionViewCell.h; sourceTree = "<group>"; };
+		4508422F1B63F9D000249E5B /* TGLCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TGLCollectionViewCell.m; sourceTree = "<group>"; };
+		450842321B64038000249E5B /* MPGNotification.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MPGNotification.h; sourceTree = "<group>"; };
+		450842331B64038000249E5B /* MPGNotification.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MPGNotification.m; sourceTree = "<group>"; };
+		4543EF831B641BA300F45016 /* TMDynamic.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = TMDynamic.plist; sourceTree = "<group>"; };
 		B5340EAE1B6369DB00A24775 /* Login.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Login.storyboard; sourceTree = "<group>"; };
 		B5340EB11B636A5700A24775 /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
 		B5340EB21B636A5700A24775 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
@@ -222,6 +230,7 @@
 		450841BD1B6364E200249E5B = {
 			isa = PBXGroup;
 			children = (
+				4543EF831B641BA300F45016 /* TMDynamic.plist */,
 				450842271B63E5BA00249E5B /* TRMCustomAnnotationView.h */,
 				450842281B63E5BA00249E5B /* TRMCustomAnnotationView.m */,
 				450842221B63D12400249E5B /* TRCustomAnnotationView.h */,
@@ -251,6 +260,7 @@
 			isa = PBXGroup;
 			children = (
 				B53AE3691B63F4FC00CDC128 /* fri.json */,
+				450842311B64036F00249E5B /* MPGNotification */,
 				B53AE3451B63B55400CDC128 /* Collection */,
 				4508420C1B63A55400249E5B /* MapSceneInitialViewController.h */,
 				4508420D1B63A55400249E5B /* MapSceneInitialViewController.m */,
@@ -282,6 +292,7 @@
 			children = (
 				450841CA1B6364E200249E5B /* Info.plist */,
 				450841CB1B6364E200249E5B /* main.m */,
+				4508422C1B63F99000249E5B /* fri.json */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -328,6 +339,15 @@
 				4508421B1B63AFE700249E5B /* Constants.m */,
 			);
 			name = Menu;
+			sourceTree = "<group>";
+		};
+		450842311B64036F00249E5B /* MPGNotification */ = {
+			isa = PBXGroup;
+			children = (
+				450842321B64038000249E5B /* MPGNotification.h */,
+				450842331B64038000249E5B /* MPGNotification.m */,
+			);
+			name = MPGNotification;
 			sourceTree = "<group>";
 		};
 		B5312D661B63836700198D94 /* Recovered References */ = {
@@ -415,6 +435,8 @@
 		B53AE3451B63B55400CDC128 /* Collection */ = {
 			isa = PBXGroup;
 			children = (
+				4508422E1B63F9D000249E5B /* TGLCollectionViewCell.h */,
+				4508422F1B63F9D000249E5B /* TGLCollectionViewCell.m */,
 				B53AE3461B63B55E00CDC128 /* TGLExposedLayout.h */,
 				B53AE3471B63B55E00CDC128 /* TGLExposedLayout.m */,
 				B53AE3481B63B55E00CDC128 /* TGLStackedLayout.h */,
@@ -534,6 +556,7 @@
 				B53AE3701B63FEB600CDC128 /* pin.brightred.png in Resources */,
 				4508422B1B63E9DD00249E5B /* DrawingPin1_Blue.png in Resources */,
 				B5340EAF1B6369DB00A24775 /* Login.storyboard in Resources */,
+				4543EF841B641BA300F45016 /* TMDynamic.plist in Resources */,
 				B53AE3631B63E02500CDC128 /* 3-5-stars.png in Resources */,
 				B53AE3791B64210500CDC128 /* zee22.jpg in Resources */,
 				B53AE3591B63CB6300CDC128 /* Friend.xib in Resources */,
@@ -595,7 +618,8 @@
 				B53AE3181B63976B00CDC128 /* MMMaterialDesignSpinner.m in Sources */,
 				B53AE3861B64269C00CDC128 /* JTSImageViewController.m in Sources */,
 				450841CF1B6364E200249E5B /* AppDelegate.m in Sources */,
-				B53AE3681B63F47B00CDC128 /* TGLCollectionViewCell.m in Sources */,
+				450842301B63F9D000249E5B /* TGLCollectionViewCell.m in Sources */,
+				450842341B64038000249E5B /* MPGNotification.m in Sources */,
 				450842291B63E5BA00249E5B /* TRMCustomAnnotationView.m in Sources */,
 				B53AE2FE1B63854D00CDC128 /* NSString+TextDirectionality.m in Sources */,
 				450841CC1B6364E200249E5B /* main.m in Sources */,

@@ -9,8 +9,7 @@
 #import "TRCustomAnnotationView.h"
 
 @implementation TRCustomAnnotationView
-
-
+/*
 // Only override drawRect: if you perform custom drawing.
 // An empty implementation adversely affects performance during animation.
 - (void)drawRect:(CGRect)rect {
@@ -18,6 +17,11 @@
     _iconImage.layer.cornerRadius = 20.0;
     _iconImage.layer.masksToBounds= YES;
 }
-
-
+*/
+-(void)awakeFromNib {
+    [self.bookNowButton addTarget:self action:@selector(bookNowButtonClicked:) forControlEvents:UIControlEventTouchUpInside];
+}
+-(void)bookNowButtonClicked:(UIButton *)sender {
+    _bookBlock(_coordinate,sender);
+}
 @end

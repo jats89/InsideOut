@@ -20,11 +20,17 @@
 
 @interface MapSceneInitialViewController ()<MKMapViewDelegate>  {
     UIView *selectedAccesoryView;
+    MPGNotification *notification;
+    CLLocationCoordinate2D userCoordinate;
+    CLLocationCoordinate2D hotelsCoordiante;
+    
 }
 @property (nonatomic, weak)IBOutlet MKMapView *mapView;
 @property (nonatomic, strong) NSArray *mapArray;
-
+@property (nonatomic, retain) MKPolyline *routeLine; //your line
+@property (nonatomic, retain) MKPolylineView *routeLineView;
 @property (nonatomic, strong) NSMutableArray *placeList;
+@property (nonatomic, strong) NSTimer *notifTimer;
 
 @end
 
@@ -33,18 +39,36 @@
 - (void)viewDidLoad {
     
     [super viewDidLoad];
+    userCoordinate = CLLocationCoordinate2DMake(37.3369444, -121.94);
     _placeList = [[NSMutableArray alloc]init];
+    
     [self readSurvyes];
     [self fetchAdressInfo:_mapArray];
     [self setPlaces];
     [self.mapView showsUserLocation];
+    
+    
+    
     // Do any additional setup after loading the view.
+}
+-(void)notifTimerInvoked  {
+    AppDelegate *appDelegate = [UIApplication sharedApplication].delegate;
+    appDelegate.questionCount = 0;
+    [appDelegate notifTimerInvoked];
+    
+    
 }
 
 - (MKAnnotationView *)mapView:(MKMapView *)mapView
             viewForAnnotation:(id < MKAnnotation >)annotation
 {
-    NSString *pinIdentifier = @"pin";
+    NSString *pinIdentifier;
+    if (![[annotation title] isEqualToString:@"User"]) {
+        pinIdentifier = @"pin";
+    } else {
+        pinIdentifier = @"user";
+        
+    }
     
     
     TRMCustomAnnotationView *annotationView = (TRMCustomAnnotationView *) [mapView dequeueReusableAnnotationViewWithIdentifier:pinIdentifier];
@@ -53,10 +77,25 @@
         annotationView = [[TRMCustomAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:pinIdentifier];
     else
         annotationView.annotation = annotation;
-    annotationView.image = [UIImage imageNamed:@"DrawingPin1_Blue"];
+    if (![[annotation title] isEqualToString:@"User"]) {
+        annotationView.image = [UIImage imageNamed:@"DrawingPin1_Blue"];
+    } else {
+        annotationView.image = [UIImage imageNamed:@"user"];
+        
+    }
     annotationView.calloutOffset = CGPointMake(-5, -5);
     
     return annotationView;
+}
+
+
+-(void)tapped   {
+    NSLog(@"friend tapped");
+}
+
+-(void)tappedMap    {
+    NSLog(@"Pick now tapped ");
+    //    [UIViewController sendNotificationWithTitle:@"ad" msg:@""];
 }
 
 - (void)mapView:(MKMapView *)mv annotationView:(MKAnnotationView *)pin calloutAccessoryControlTapped:(UIControl *)control {
@@ -83,13 +122,13 @@
 
 
 - (void)mapView:(MKMapView *)mapView didDeselectAnnotationView:(MKAnnotationView *)view{
-//    TRCustomAnnotationView *customView = [[[NSBundle mainBundle] loadNibNamed:@"TRCustomAnnotationView"
-//                                                                        owner:self
-//                                                                      options:nil]
-//                                          objectAtIndex:0];
-//    customView.frame = CGRectMake(0, 0, 300, 100);
-//    customView.center = CGPointMake(view.bounds.size.width*0.5f, self.view.bounds.size.height*0.5f);
-
+    //    TRCustomAnnotationView *customView = [[[NSBundle mainBundle] loadNibNamed:@"TRCustomAnnotationView"
+    //                                                                        owner:self
+    //                                                                      options:nil]
+    //                                          objectAtIndex:0];
+    //    customView.frame = CGRectMake(0, 0, 300, 100);
+    //    customView.center = CGPointMake(view.bounds.size.width*0.5f, self.view.bounds.size.height*0.5f);
+    
     for (UIView *subView in view.subviews) {
         if ([subView isKindOfClass:[TRCustomAnnotationView class]]) {
             subView.hidden = true;
@@ -154,9 +193,42 @@
         [self performSelector:@selector(response2:) withObject:sender afterDelay:Delay];
     }
 }
+-(void)deselectAllAnnotationa {
+    for (id currentAnnotation in self.mapView.annotations) {
+        if ([currentAnnotation isKindOfClass:[MKPointAnnotation class]]) {
+            [self.mapView deselectAnnotation:currentAnnotation animated:YES];
+        }
+    }
+}
+
 
 -(void)response2:(UIButton *)sender  {
     [sender setTitle:@"Booked" forState:UIControlStateNormal];
+    [self performSelector:@selector(deselectAllAnnotationa) withObject:nil afterDelay:2];
+    
+    
+    self.notifTimer = [NSTimer scheduledTimerWithTimeInterval:5 target:self selector:@selector(notifTimerInvoked) userInfo:nil repeats:false];
+    MKDirectionsRequest *request = [[MKDirectionsRequest alloc] init];
+    MKPlacemark *placemark1 = [[MKPlacemark alloc] initWithCoordinate:hotelsCoordiante addressDictionary:nil];
+    [request setSource:[[MKMapItem alloc] initWithPlacemark:placemark1]];
+    
+    MKPlacemark *placemark = [[MKPlacemark alloc] initWithCoordinate:userCoordinate addressDictionary:nil];
+    request.destination = [[MKMapItem alloc] initWithPlacemark:placemark];
+    
+    
+    // [request setDestination:myMapItem];
+    [request setTransportType:MKDirectionsTransportTypeAutomobile]; // This can be limited to automobile and walking directions.
+    [request setRequestsAlternateRoutes:YES]; // Gives you several route options.
+    MKDirections *directions = [[MKDirections alloc] initWithRequest:request];
+    [directions calculateDirectionsWithCompletionHandler:^(MKDirectionsResponse *response, NSError *error) {
+        if (!error) {
+            if ([response routes].count >0) {
+                MKRoute *route = [response routes][0];
+                [self.mapView addOverlay:[route polyline] level:MKOverlayLevelAboveRoads];
+            }
+        }
+    }];
+    
 }
 
 -(void)response1:(UIButton *)sender  {
@@ -201,11 +273,12 @@
 }
 -(void)setPlaces {
     [self.mapView removeAnnotations:self.mapView.annotations];
-    
+    __block int count = 0;
     for  (PlaceInfo *placeObj in _placeList) {
         CLGeocoder *geoCoder = [[CLGeocoder alloc]init];
         [geoCoder geocodeAddressString:[placeObj getCompleteAddress]  completionHandler:^(NSArray *placemarks, NSError *error) {
             if (placemarks.count >0){
+                count ++;
                 CLPlacemark *placeMark  = placemarks[0];
                 CLLocation *location = placeMark.location;
                 CLLocationCoordinate2D coordinate = location.coordinate;
@@ -216,18 +289,34 @@
                 MKCoordinateRegion region = MKCoordinateRegionMakeWithDistance(annatationPoint.coordinate, 1000, 1000);
                 MKCoordinateSpan span = MKCoordinateSpanMake(0.03, 0.03);
                 region.span = span;
-                
-                dispatch_async(dispatch_get_main_queue(), ^{
-                    [self.mapView setRegion:region];
-                    
-                    [self.mapView addAnnotation:annatationPoint];
-                    [self.mapView showAnnotations:self.mapView.annotations animated:true];
-                });
+                [self.mapView setRegion:region];
+                [self.mapView addAnnotation:annatationPoint];
+                if (count == _placeList.count) {
+                    dispatch_async(dispatch_get_main_queue(), ^{
+                        
+                        MKPointAnnotation *point = [[MKPointAnnotation alloc] init];
+                        point.title = @"User";
+                        point.coordinate = userCoordinate;
+                        [self.mapView addAnnotation:point];
+                        [self.mapView showAnnotations:self.mapView.annotations animated:true];
+                    });
+                }
             };
             
         }];
         
     }
+}
+- (MKOverlayRenderer *)mapView:(MKMapView *)mapView rendererForOverlay:(id<MKOverlay>)overlay
+{
+    if ([overlay isKindOfClass:[MKPolyline class]]) {
+        MKPolyline *route = overlay;
+        MKPolylineRenderer *routeRenderer = [[MKPolylineRenderer alloc] initWithPolyline:route];
+        routeRenderer.lineWidth = 3.0f;
+        routeRenderer.strokeColor = [UIColor blueColor];
+        return routeRenderer;
+    }
+    else return nil;
 }
 
 /*

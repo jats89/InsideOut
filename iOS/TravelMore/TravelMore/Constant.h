@@ -12,5 +12,6 @@
 #define APP_FONT                @"GillSans"
 #define APP_FONT_LIGHT          @"GillSans-Light"
 #define Delay 0
+#define Response 0
 
 #endif
