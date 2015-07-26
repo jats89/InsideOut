@@ -7,6 +7,7 @@
 //
 
 #import "TRCustomAnnotationView.h"
+#import "Constant.h"
 
 @implementation TRCustomAnnotationView
 /*
@@ -20,6 +21,8 @@
 */
 -(void)awakeFromNib {
     [self.bookNowButton addTarget:self action:@selector(bookNowButtonClicked:) forControlEvents:UIControlEventTouchUpInside];
+    _iconImage.layer.cornerRadius = 20.0;
+    _iconImage.layer.masksToBounds= YES;
 }
 -(void)bookNowButtonClicked:(UIButton *)sender {
     _bookBlock(_coordinate,sender);
