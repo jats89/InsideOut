@@ -61,6 +61,16 @@
 		B53AE36C1B63F6B100CDC128 /* Screen Shot 2015-07-25 at 10.22.39 pm.png in Resources */ = {isa = PBXBuildFile; fileRef = B53AE36B1B63F6B100CDC128 /* Screen Shot 2015-07-25 at 10.22.39 pm.png */; };
 		B53AE36E1B63F83200CDC128 /* images (3).jpeg in Resources */ = {isa = PBXBuildFile; fileRef = B53AE36D1B63F83200CDC128 /* images (3).jpeg */; };
 		B53AE3701B63FEB600CDC128 /* pin.brightred.png in Resources */ = {isa = PBXBuildFile; fileRef = B53AE36F1B63FEB600CDC128 /* pin.brightred.png */; };
+		B53AE3731B641D5200CDC128 /* HotalDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B53AE3721B641D5200CDC128 /* HotalDetailViewController.m */; };
+		B53AE3751B6420F600CDC128 /* PS_Hotel_KingRoom_new.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B53AE3741B6420F600CDC128 /* PS_Hotel_KingRoom_new.jpg */; };
+		B53AE3771B6420FD00CDC128 /* rooftop2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B53AE3761B6420FD00CDC128 /* rooftop2.jpg */; };
+		B53AE3791B64210500CDC128 /* zee22.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B53AE3781B64210500CDC128 /* zee22.jpg */; };
+		B53AE3861B64269C00CDC128 /* JTSImageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B53AE37B1B64269B00CDC128 /* JTSImageViewController.m */; };
+		B53AE3871B64269C00CDC128 /* JTSImageInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = B53AE37D1B64269B00CDC128 /* JTSImageInfo.m */; };
+		B53AE3881B64269C00CDC128 /* JTSSimpleImageDownloader.m in Sources */ = {isa = PBXBuildFile; fileRef = B53AE37F1B64269B00CDC128 /* JTSSimpleImageDownloader.m */; };
+		B53AE3891B64269C00CDC128 /* JTSAnimatedGIFUtility.m in Sources */ = {isa = PBXBuildFile; fileRef = B53AE3811B64269C00CDC128 /* JTSAnimatedGIFUtility.m */; };
+		B53AE38A1B64269C00CDC128 /* UIImage+JTSImageEffects.m in Sources */ = {isa = PBXBuildFile; fileRef = B53AE3831B64269C00CDC128 /* UIImage+JTSImageEffects.m */; };
+		B53AE38B1B64269C00CDC128 /* UIApplication+JTSImageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B53AE3851B64269C00CDC128 /* UIApplication+JTSImageViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -166,6 +176,23 @@
 		B53AE36B1B63F6B100CDC128 /* Screen Shot 2015-07-25 at 10.22.39 pm.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Screen Shot 2015-07-25 at 10.22.39 pm.png"; sourceTree = "<group>"; };
 		B53AE36D1B63F83200CDC128 /* images (3).jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "images (3).jpeg"; sourceTree = "<group>"; };
 		B53AE36F1B63FEB600CDC128 /* pin.brightred.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pin.brightred.png; sourceTree = "<group>"; };
+		B53AE3711B641D5200CDC128 /* HotalDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HotalDetailViewController.h; sourceTree = "<group>"; };
+		B53AE3721B641D5200CDC128 /* HotalDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HotalDetailViewController.m; sourceTree = "<group>"; };
+		B53AE3741B6420F600CDC128 /* PS_Hotel_KingRoom_new.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = PS_Hotel_KingRoom_new.jpg; sourceTree = "<group>"; };
+		B53AE3761B6420FD00CDC128 /* rooftop2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = rooftop2.jpg; sourceTree = "<group>"; };
+		B53AE3781B64210500CDC128 /* zee22.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = zee22.jpg; sourceTree = "<group>"; };
+		B53AE37A1B64269B00CDC128 /* JTSImageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JTSImageViewController.h; sourceTree = "<group>"; };
+		B53AE37B1B64269B00CDC128 /* JTSImageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JTSImageViewController.m; sourceTree = "<group>"; };
+		B53AE37C1B64269B00CDC128 /* JTSImageInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JTSImageInfo.h; sourceTree = "<group>"; };
+		B53AE37D1B64269B00CDC128 /* JTSImageInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JTSImageInfo.m; sourceTree = "<group>"; };
+		B53AE37E1B64269B00CDC128 /* JTSSimpleImageDownloader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JTSSimpleImageDownloader.h; sourceTree = "<group>"; };
+		B53AE37F1B64269B00CDC128 /* JTSSimpleImageDownloader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JTSSimpleImageDownloader.m; sourceTree = "<group>"; };
+		B53AE3801B64269C00CDC128 /* JTSAnimatedGIFUtility.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JTSAnimatedGIFUtility.h; sourceTree = "<group>"; };
+		B53AE3811B64269C00CDC128 /* JTSAnimatedGIFUtility.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JTSAnimatedGIFUtility.m; sourceTree = "<group>"; };
+		B53AE3821B64269C00CDC128 /* UIImage+JTSImageEffects.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+JTSImageEffects.h"; sourceTree = "<group>"; };
+		B53AE3831B64269C00CDC128 /* UIImage+JTSImageEffects.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+JTSImageEffects.m"; sourceTree = "<group>"; };
+		B53AE3841B64269C00CDC128 /* UIApplication+JTSImageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIApplication+JTSImageViewController.h"; sourceTree = "<group>"; };
+		B53AE3851B64269C00CDC128 /* UIApplication+JTSImageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIApplication+JTSImageViewController.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -354,6 +381,7 @@
 		B53AE2F51B63853B00CDC128 /* 3rdparty */ = {
 			isa = PBXGroup;
 			children = (
+				B53AE38C1B6426A200CDC128 /* image */,
 				B53AE3131B63976100CDC128 /* New Group */,
 				B53AE3121B63975C00CDC128 /* Fb */,
 				B53AE2FF1B63855100CDC128 /* TextField+View */,
@@ -392,6 +420,9 @@
 		B53AE3131B63976100CDC128 /* New Group */ = {
 			isa = PBXGroup;
 			children = (
+				B53AE3741B6420F600CDC128 /* PS_Hotel_KingRoom_new.jpg */,
+				B53AE3781B64210500CDC128 /* zee22.jpg */,
+				B53AE3761B6420FD00CDC128 /* rooftop2.jpg */,
 				B53AE3141B63976B00CDC128 /* MMMaterialDesignSpinner.h */,
 				B53AE36F1B63FEB600CDC128 /* pin.brightred.png */,
 				B53AE3151B63976B00CDC128 /* MMMaterialDesignSpinner.m */,
@@ -414,8 +445,29 @@
 				B53AE3671B63F47B00CDC128 /* TGLCollectionViewCell.m */,
 				B53AE34A1B63B55E00CDC128 /* TGLStackedViewController.h */,
 				B53AE34B1B63B55E00CDC128 /* TGLStackedViewController.m */,
+				B53AE3711B641D5200CDC128 /* HotalDetailViewController.h */,
+				B53AE3721B641D5200CDC128 /* HotalDetailViewController.m */,
 			);
 			name = Collection;
+			sourceTree = "<group>";
+		};
+		B53AE38C1B6426A200CDC128 /* image */ = {
+			isa = PBXGroup;
+			children = (
+				B53AE37A1B64269B00CDC128 /* JTSImageViewController.h */,
+				B53AE37B1B64269B00CDC128 /* JTSImageViewController.m */,
+				B53AE37C1B64269B00CDC128 /* JTSImageInfo.h */,
+				B53AE37D1B64269B00CDC128 /* JTSImageInfo.m */,
+				B53AE37E1B64269B00CDC128 /* JTSSimpleImageDownloader.h */,
+				B53AE37F1B64269B00CDC128 /* JTSSimpleImageDownloader.m */,
+				B53AE3801B64269C00CDC128 /* JTSAnimatedGIFUtility.h */,
+				B53AE3811B64269C00CDC128 /* JTSAnimatedGIFUtility.m */,
+				B53AE3821B64269C00CDC128 /* UIImage+JTSImageEffects.h */,
+				B53AE3831B64269C00CDC128 /* UIImage+JTSImageEffects.m */,
+				B53AE3841B64269C00CDC128 /* UIApplication+JTSImageViewController.h */,
+				B53AE3851B64269C00CDC128 /* UIApplication+JTSImageViewController.m */,
+			);
+			name = image;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -499,12 +551,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				B53AE30D1B638A5E00CDC128 /* FBAudienceNetwork.README.txt in Resources */,
+				B53AE3751B6420F600CDC128 /* PS_Hotel_KingRoom_new.jpg in Resources */,
 				B53AE36E1B63F83200CDC128 /* images (3).jpeg in Resources */,
 				B53AE3701B63FEB600CDC128 /* pin.brightred.png in Resources */,
 				4508422B1B63E9DD00249E5B /* DrawingPin1_Blue.png in Resources */,
 				B5340EAF1B6369DB00A24775 /* Login.storyboard in Resources */,
 				4543EF841B641BA300F45016 /* TMDynamic.plist in Resources */,
 				B53AE3631B63E02500CDC128 /* 3-5-stars.png in Resources */,
+				B53AE3791B64210500CDC128 /* zee22.jpg in Resources */,
 				B53AE3591B63CB6300CDC128 /* Friend.xib in Resources */,
 				B53AE30B1B638A5E00CDC128 /* FacebookSDKStrings.bundle in Resources */,
 				450841D51B6364E200249E5B /* Main.storyboard in Resources */,
@@ -516,6 +570,7 @@
 				4508420B1B63A54900249E5B /* MapLocations.json in Resources */,
 				B53AE3651B63E07E00CDC128 /* white_star_u2606_icon_256x256.png in Resources */,
 				450841D71B6364E200249E5B /* Images.xcassets in Resources */,
+				B53AE3771B6420FD00CDC128 /* rooftop2.jpg in Resources */,
 				450842261B63D14200249E5B /* TRCustomAnnotationView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -536,25 +591,32 @@
 			files = (
 				B53AE35F1B63D18900CDC128 /* UIViewController+Helper.m in Sources */,
 				B5340EB31B636A5700A24775 /* LoginViewController.m in Sources */,
+				B53AE38A1B64269C00CDC128 /* UIImage+JTSImageEffects.m in Sources */,
 				450842191B63AFA400249E5B /* MenuViewController.m in Sources */,
 				4508420E1B63A55400249E5B /* MapSceneInitialViewController.m in Sources */,
 				B5340EBB1B6373AE00A24775 /* NSObject+Helper.m in Sources */,
+				B53AE3871B64269C00CDC128 /* JTSImageInfo.m in Sources */,
 				B5340EBE1B6373F100A24775 /* UIView+Helper.m in Sources */,
 				450842161B63AEF100249E5B /* KYCircleMenu.m in Sources */,
 				450841D21B6364E200249E5B /* ViewController.m in Sources */,
+				B53AE3731B641D5200CDC128 /* HotalDetailViewController.m in Sources */,
 				B53AE2FC1B63854D00CDC128 /* JVFloatLabeledTextField.m in Sources */,
 				B53AE3571B63CB5300CDC128 /* FriendControl.m in Sources */,
 				B53AE34E1B63B55E00CDC128 /* TGLStackedViewController.m in Sources */,
 				B53AE3511B63B56A00CDC128 /* TGLViewController.m in Sources */,
+				B53AE38B1B64269C00CDC128 /* UIApplication+JTSImageViewController.m in Sources */,
 				450842111B63A5A900249E5B /* PlaceInfo.m in Sources */,
 				450842241B63D12400249E5B /* TRCustomAnnotationView.m in Sources */,
+				B53AE3891B64269C00CDC128 /* JTSAnimatedGIFUtility.m in Sources */,
 				B5340EC11B63745200A24775 /* UIColor+Helper.m in Sources */,
 				B53AE3191B63976B00CDC128 /* DeformationButton.m in Sources */,
+				B53AE3881B64269C00CDC128 /* JTSSimpleImageDownloader.m in Sources */,
 				450842081B63A53E00249E5B /* MapControl.m in Sources */,
 				B53AE34D1B63B55E00CDC128 /* TGLStackedLayout.m in Sources */,
 				B53AE34C1B63B55E00CDC128 /* TGLExposedLayout.m in Sources */,
 				B53AE2FD1B63854D00CDC128 /* JVFloatLabeledTextView.m in Sources */,
 				B53AE3181B63976B00CDC128 /* MMMaterialDesignSpinner.m in Sources */,
+				B53AE3861B64269C00CDC128 /* JTSImageViewController.m in Sources */,
 				450841CF1B6364E200249E5B /* AppDelegate.m in Sources */,
 				450842301B63F9D000249E5B /* TGLCollectionViewCell.m in Sources */,
 				450842341B64038000249E5B /* MPGNotification.m in Sources */,

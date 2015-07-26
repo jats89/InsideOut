@@ -12,9 +12,12 @@
 #import "MapControl.h"
 #import "TRCustomAnnotationView.h"
 #import "TRMCustomAnnotationView.h"
+#import "FriendControl.h"
+#import "Constant.h"
+#import "JTSImageInfo.h"
+#import "JTSImageViewController.h"
 #import "MPGNotification.h"
-#import "Appdelegate.h"
-
+#import "AppDelegate.h"
 
 
 
@@ -137,11 +140,6 @@
     
 }
 - (void)mapView:(MKMapView *)mapView didSelectAnnotationView:(MKAnnotationView *)view{
-    //    for (UIView *subView in view.subviews) {
-    //        if ([subView isKindOfClass:[TRCustomAnnotationView class]]) {
-    //            subView.hidden = false;
-    //        }
-    //    }
     if (![[view
            .annotation title] isEqualToString:@"User"]){
         TRCustomAnnotationView *customView = [[[NSBundle mainBundle] loadNibNamed:@"TRCustomAnnotationView"
@@ -169,16 +167,39 @@
         [view addSubview:customView];
         
         customView.center = CGPointMake(view.bounds.size.width*0.5f, -view.bounds.size.height*0.6f);
+   
+        UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(showDetail:)];
+        tap.numberOfTapsRequired = 1;
+        customView.titlelabel.userInteractionEnabled = true;
+        [customView.titlelabel addGestureRecognizer:tap];
     }
-    
 }
+
+-(IBAction)showDetail:(UITapGestureRecognizer *)sender    {
+    JTSImageInfo *imageInfo = [[JTSImageInfo alloc] init];
+        imageInfo.image = [UIImage imageNamed:@"rooftop2.jpg"];
+    imageInfo.referenceRect = sender.view.frame;
+    imageInfo.referenceView = sender.view.superview;
+    imageInfo.referenceContentMode = sender.view.contentMode;
+    imageInfo.referenceCornerRadius = sender.view.layer.cornerRadius;
+    
+    // Setup view controller
+    JTSImageViewController *imageViewer = [[JTSImageViewController alloc]
+                                           initWithImageInfo:imageInfo
+                                           mode:JTSImageViewControllerMode_Image
+                                           backgroundStyle:JTSImageViewControllerBackgroundOption_Scaled];
+    
+    // Present the view controller.
+    [imageViewer showFromViewController:self transition:JTSImageViewControllerTransition_FromOriginalPosition];
+}
+
 -(void)bookNowButtonClicked:(UIButton *)sender {
     if ([sender.titleLabel.text isEqualToString:@"Book Now"]) {
         [sender setTitle:@"Requested" forState:UIControlStateNormal];
-        [self performSelector:@selector(response1:) withObject:sender afterDelay:5.0];
+        [self performSelector:@selector(response1:) withObject:sender afterDelay:Delay];
     } else if ([sender.titleLabel.text isEqualToString:@"Pay 10%"]) {
         [sender setTitle:@"Waiting" forState:UIControlStateNormal];
-        [self performSelector:@selector(response2:) withObject:sender afterDelay:5.0];
+        [self performSelector:@selector(response2:) withObject:sender afterDelay:Delay];
     }
 }
 -(void)deselectAllAnnotationa {
