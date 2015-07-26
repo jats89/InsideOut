@@ -16,6 +16,9 @@
 #import "Constant.h"
 #import "JTSImageInfo.h"
 #import "JTSImageViewController.h"
+#import "MPGNotification.h"
+#import "AppDelegate.h"
+
 
 
 @interface MapSceneInitialViewController ()<MKMapViewDelegate>  {
@@ -137,33 +140,31 @@
     
 }
 - (void)mapView:(MKMapView *)mapView didSelectAnnotationView:(MKAnnotationView *)view{
-//    for (UIView *subView in view.subviews) {
-//        if ([subView isKindOfClass:[TRCustomAnnotationView class]]) {
-//            subView.hidden = false;
-//        }
-//    }
-    TRCustomAnnotationView *customView = [[[NSBundle mainBundle] loadNibNamed:@"TRCustomAnnotationView"
-                                                                        owner:self
-                                                                      options:nil]
-                                          objectAtIndex:0];
-    customView.frame = CGRectMake(0, 0, 300, 60);
-    customView.layer.cornerRadius = 10.0f;
-    customView.layer.masksToBounds = true;
-    customView.titlelabel.text = [view.annotation title];
-    
-    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(showDetail:)];
-    tap.numberOfTapsRequired = 1;
-    [customView addGestureRecognizer:tap];
-    
-    customView.subTitlelabel.text = [view.annotation subtitle];
-    [customView.bookNowButton addTarget:self action:@selector(bookNowButtonClicked:) forControlEvents:UIControlEventTouchUpInside];
-    [customView.friendsButton addTarget:self action:@selector(friendsButtonClicked:) forControlEvents:UIControlEventTouchUpInside];
-
-
-    [view addSubview:customView];
-
-    customView.center = CGPointMake(view.bounds.size.width*0.5f, -view.bounds.size.height*0.6f);
-    
+    if (![[view
+           .annotation title] isEqualToString:@"User"]){
+        TRCustomAnnotationView *customView = [[[NSBundle mainBundle] loadNibNamed:@"TRCustomAnnotationView"
+                                                                            owner:self
+                                                                          options:nil]
+                                              objectAtIndex:0];
+        customView.frame = CGRectMake(0, 0, 300, 60);
+        customView.layer.cornerRadius = 10.0f;
+        customView.layer.masksToBounds = true;
+        customView.titlelabel.text = [view.annotation title];
+        customView.subTitlelabel.text = [view.annotation subtitle];
+        customView.coordinate = [view.annotation coordinate];
+        customView.bookBlock = ^(CLLocationCoordinate2D coordinate, UIButton *sender){
+            hotelsCoordiante = coordinate;
+            [self bookNowButtonClicked:sender];
+            
+        };
+        
+        [customView.friendsButton addTarget:self action:@selector(friendsButtonClicked:) forControlEvents:UIControlEventTouchUpInside];
+        
+        
+        [view addSubview:customView];
+        
+        customView.center = CGPointMake(view.bounds.size.width*0.5f, -view.bounds.size.height*0.6f);
+    }
 }
 
 -(IBAction)showDetail:(UITapGestureRecognizer *)sender    {
