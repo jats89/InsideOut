@@ -8,6 +8,16 @@
 
 #import "LoginViewController.h"
 #import "UIColor+Helper.h"
+#import "JVFloatLabeledTextField.h"
+#import <FBSDKLoginKit/FBSDKLoginKit.h>
+#import <FBSDKCoreKit/FBSDKCoreKit.h>
+#import "DeformationButton.h"
+#import "Constant.h"
+#import "MapSceneInitialViewController.h"
+#import "MenuViewController.h"
+#import "Constants.h"
+
+
 
 @interface LoginViewController () <UITextFieldDelegate>
 @property (weak, nonatomic) IBOutlet UIImageView *myImage1;
@@ -15,8 +25,12 @@
 @property (weak, nonatomic) IBOutlet UIImageView *myImage3;
 @property (nonatomic, strong) NSTimer *timer;
 @property (nonatomic, strong) NSNumber *currentImageIndex;
-@property (nonatomic, strong) IBOutlet UIButton *logInButton;
-@property (nonatomic, strong) IBOutlet UIButton *coverView;
+@property (nonatomic, strong) DeformationButton *logInButton;
+@property (nonatomic, strong) IBOutlet UIView *coverView;
+
+@property (nonatomic, weak) IBOutlet JVFloatLabeledTextField *username;
+@property (nonatomic, weak) IBOutlet JVFloatLabeledTextField *password;
+@property (nonatomic) BOOL isLoaded;
 @end
 
 @implementation LoginViewController
@@ -27,8 +41,30 @@
                                                   target:self
                                                 selector:@selector(updateImage:)
                                                 userInfo:nil repeats:YES];
-    
-    self.logInButton.backgroundColor = [UIColor colorWithHexString:@"382137"];
+    _username.placeholder = @"Username";
+    _password.placeholder = @"Password";
+}
+
+-(void)viewDidLayoutSubviews    {
+    [super viewDidLayoutSubviews];
+    if (!_isLoaded) {
+        _isLoaded = true;
+        _logInButton = [[DeformationButton alloc]initWithFrame:CGRectMake(10,350,self.coverView.bounds.size.width-20, 40) withColor:[UIColor redColor]];
+        [self.coverView addSubview:_logInButton];
+        [_logInButton.forDisplayButton.titleLabel setFont:[UIFont fontWithName:APP_FONT_BOLD size:20.0]];
+        [_logInButton.forDisplayButton setTitle:@"Login With Facebook" forState:UIControlStateNormal];
+        [_logInButton.forDisplayButton.titleLabel setFont:[UIFont systemFontOfSize:15]];
+        [_logInButton.forDisplayButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+        [_logInButton.forDisplayButton setTitleEdgeInsets:UIEdgeInsetsMake(0, 6, 0, 0)];
+        [_logInButton.forDisplayButton setImage:[UIImage imageNamed:@"微博logo.png"] forState:UIControlStateNormal];
+        
+        
+        [_logInButton addTarget:self action:@selector(responder) forControlEvents:UIControlEventTouchUpInside];
+    }
+}
+
+-(void)responder    {
+    [self performSelector:@selector(facebookAction:) withObject:nil afterDelay:Delay];
 }
 
 - (void)viewWillDisappear:(BOOL)animated    {
@@ -53,23 +89,47 @@
     UIColor *backgroundColor;
     switch (counter) {
         case 1:
-            backgroundColor = [UIColor colorWithHexString:@"382137"];
+            backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:fadeOut]];
             break;
         case 2:
-            backgroundColor = [UIColor colorWithHexString:@"2F415D"];
+            backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:fadeOut]];
             break;
         default:
-            backgroundColor = [UIColor colorWithHexString:@"2F2C26"];
+            backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:fadeOut]];
             break;
     }
     
     [UIView animateWithDuration:2.0 animations:^{
         [[self valueForKey:fadeOut] setAlpha:0.0];
-        self.logInButton.backgroundColor = backgroundColor;
         
     } completion:^(BOOL finished) {
         UIImageView *fadeInView = [self valueForKey:fadeIn];
         [self.view bringSubviewToFront:fadeInView];
+        [self.view bringSubviewToFront:self.coverView];
     }];
 }
+
+-(IBAction)loginAction:(id)sender   {
+    
+}
+
+-(IBAction)facebookAction:(id)sender    {
+    [FBSDKAccessToken setCurrentAccessToken:nil];
+    FBSDKLoginManager *login = [[FBSDKLoginManager alloc] init];
+    [login logInWithReadPermissions:@[@"email",@"user_friends"] handler:^(FBSDKLoginManagerLoginResult *result, NSError *error) {
+        if (error) {
+            NSLog(@"Error");
+        } else if (result.isCancelled) {
+            NSLog(@"Cancel Pressed");
+        } else {
+            [self performSelector:@selector(showHome) withObject:nil afterDelay:Delay];
+        }
+    }];
+}
+
+-(void)showHome {
+    [self performSegueWithIdentifier:@"ModalExposed" sender:nil];
+    
+
+    }
 @end

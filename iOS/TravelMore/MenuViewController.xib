@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7706" systemVersion="14E46" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MenuViewController">
+            <connections>
+                <outlet property="coverView" destination="vly-q1-cNe" id="86e-LV-FIa"/>
+                <outlet property="myImage1" destination="58M-pj-eHU" id="Oxf-K7-QDR"/>
+                <outlet property="myImage2" destination="YM0-KG-GGJ" id="c74-yF-oap"/>
+                <outlet property="myImage3" destination="BeG-xX-n6X" id="qCh-5f-7oQ"/>
+                <outlet property="nameLabel" destination="24N-L1-btD" id="VUa-kD-6HH"/>
+                <outlet property="view" destination="iN0-l3-epB" id="93V-KY-C6A"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <imageView userInteractionEnabled="NO" alpha="0.0" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bg_3_blur" translatesAutoresizingMaskIntoConstraints="NO" id="58M-pj-eHU">
+                    <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                </imageView>
+                <imageView userInteractionEnabled="NO" alpha="0.0" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bg_2_blur" translatesAutoresizingMaskIntoConstraints="NO" id="YM0-KG-GGJ">
+                    <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                </imageView>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bg_1_blur" translatesAutoresizingMaskIntoConstraints="NO" id="BeG-xX-n6X">
+                    <rect key="frame" x="0.0" y="0.0" width="2560" height="1600"/>
+                </imageView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Travel More" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="24N-L1-btD">
+                    <rect key="frame" x="216" y="30" width="167.5" height="36"/>
+                    <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="30"/>
+                    <color key="textColor" red="0.070588235289999995" green="0.090196078430000007" blue="0.21176470589999999" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vly-q1-cNe">
+                    <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="600" id="44Y-2w-WWZ"/>
+                        <constraint firstAttribute="height" constant="600" id="sPL-rx-QDE"/>
+                    </constraints>
+                    <variation key="default">
+                        <mask key="constraints">
+                            <exclude reference="44Y-2w-WWZ"/>
+                            <exclude reference="sPL-rx-QDE"/>
+                        </mask>
+                    </variation>
+                </view>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstAttribute="bottom" secondItem="58M-pj-eHU" secondAttribute="bottom" id="0Pv-F0-uf4"/>
+                <constraint firstAttribute="bottom" secondItem="BeG-xX-n6X" secondAttribute="bottom" constant="-1000" id="5pU-bh-olC"/>
+                <constraint firstItem="24N-L1-btD" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="30" id="71e-zp-Bq3"/>
+                <constraint firstItem="58M-pj-eHU" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="EmL-ha-dl7"/>
+                <constraint firstItem="vly-q1-cNe" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="I17-7x-FK0"/>
+                <constraint firstAttribute="bottom" secondItem="vly-q1-cNe" secondAttribute="bottom" id="IKE-Az-HI0"/>
+                <constraint firstItem="YM0-KG-GGJ" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="NFn-Rw-PII"/>
+                <constraint firstItem="BeG-xX-n6X" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="Obg-Od-hkY"/>
+                <constraint firstAttribute="bottom" secondItem="YM0-KG-GGJ" secondAttribute="bottom" id="QFf-bF-aU8"/>
+                <constraint firstAttribute="trailing" secondItem="YM0-KG-GGJ" secondAttribute="trailing" id="WQ9-X8-zqt"/>
+                <constraint firstItem="58M-pj-eHU" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="b4e-48-Tmm"/>
+                <constraint firstAttribute="centerX" secondItem="24N-L1-btD" secondAttribute="centerX" id="cAV-rG-AxH"/>
+                <constraint firstAttribute="centerY" secondItem="vly-q1-cNe" secondAttribute="centerY" id="e6d-Yi-nXJ"/>
+                <constraint firstAttribute="centerX" secondItem="vly-q1-cNe" secondAttribute="centerX" id="fus-CG-Olh"/>
+                <constraint firstItem="BeG-xX-n6X" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="hSd-xX-uwC"/>
+                <constraint firstItem="vly-q1-cNe" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="ipa-5U-rte"/>
+                <constraint firstAttribute="trailing" secondItem="vly-q1-cNe" secondAttribute="trailing" id="q0x-i9-Vre"/>
+                <constraint firstAttribute="trailing" secondItem="58M-pj-eHU" secondAttribute="trailing" id="veu-ON-3q4"/>
+                <constraint firstItem="YM0-KG-GGJ" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="vnd-4n-G1a"/>
+                <constraint firstAttribute="trailing" secondItem="BeG-xX-n6X" secondAttribute="trailing" constant="-1960" id="xUa-2r-x9F"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <variation key="default">
+                <mask key="constraints">
+                    <exclude reference="e6d-Yi-nXJ"/>
+                    <exclude reference="fus-CG-Olh"/>
+                </mask>
+            </variation>
+            <point key="canvasLocation" x="236" y="369"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="bg_1_blur" width="2560" height="1600"/>
+        <image name="bg_2_blur" width="284" height="177"/>
+        <image name="bg_3_blur" width="278" height="181"/>
+    </resources>
+</document>

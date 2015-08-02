@@ -7,39 +7,103 @@
 //
 
 #import "AppDelegate.h"
+#import <FBSDKLoginKit/FBSDKLoginKit.h>
+#import <FBSDKCoreKit/FBSDKApplicationDelegate.h>
+#import <FBSDKCoreKit/FBSDKAppEvents.h>
+#import "MPGNotification.h"
+#import "Constant.h"
 
-@interface AppDelegate ()
+#define KResponseKey @"Notif"
+@interface AppDelegate () {
+    NSTimer *responseTimer;
+    MPGNotification *notification;
+    NSArray *reponseQuestions;
+}
 
 @end
 
 @implementation AppDelegate
 
+- (void)applicationDidBecomeActive:(UIApplication *)application {
+    [FBSDKAppEvents activateApp];
+}
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    // Override point for customization after application launch.
-    return YES;
+    dispatch_queue_t backProcess = dispatch_queue_create("responseQueue", NULL);
+    dispatch_async(backProcess, ^{
+        reponseQuestions = [NSArray arrayWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"TMDynamic" ofType:@"plist"]];
+    });
+    return [[FBSDKApplicationDelegate sharedInstance] application:application
+                                    didFinishLaunchingWithOptions:launchOptions];
 }
 
-- (void)applicationWillResignActive:(UIApplication *)application {
-    // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
-    // Use this method to pause ongoing tasks, disable timers, and throttle down OpenGL ES frame rates. Games should use this method to pause the game.
+- (BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation {
+    return [[FBSDKApplicationDelegate sharedInstance] application:application
+                                                          openURL:url
+                                                sourceApplication:sourceApplication
+                                                       annotation:annotation];
 }
-
-- (void)applicationDidEnterBackground:(UIApplication *)application {
-    // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.
-    // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
-}
-
-- (void)applicationWillEnterForeground:(UIApplication *)application {
-    // Called as part of the transition from the background to the inactive state; here you can undo many of the changes made on entering the background.
-}
-
-- (void)applicationDidBecomeActive:(UIApplication *)application {
-    // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
-}
-
-- (void)applicationWillTerminate:(UIApplication *)application {
-    // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+-(void)notifTimerInvoked  {
+    if (self.questionCount >= reponseQuestions.count) {
+        return;
+    }
+    NSArray *buttonArray;
+    UIImage *icon;
+    NSString *subtitle;
+    responseTimer = nil;
+    buttonArray = [NSArray arrayWithObjects:@"Like",@"Dislike", nil];
+    
+    icon = [UIImage imageNamed:@"_feedback"];
+            subtitle = [reponseQuestions objectAtIndex:_questionCount];
+ 
+       notification = [MPGNotification notificationWithTitle:@"Bunty" subtitle:subtitle backgroundColor:[UIColor lightGrayColor] iconImage:icon];
+    [notification setButtonConfiguration:buttonArray.count withButtonTitles:buttonArray];
+    notification.duration = 25.0;
+    notification.swipeToDismissEnabled = NO;
+    __weak typeof(self) weakSelf = self;
+    [notification setDismissHandler:^(MPGNotification *notification) {
+        //        [weakSelf.showNotificationButton setEnabled:YES];
+    }];
+    
+    [notification setButtonHandler:^(MPGNotification *notification, NSInteger buttonIndex) {
+        if (buttonIndex == 0) {
+            if (_questionCount < reponseQuestions.count) {
+              responseTimer = [NSTimer scheduledTimerWithTimeInterval:5 target:self selector:@selector(notifTimerInvoked) userInfo:nil repeats:false];
+                weakSelf.questionCount ++;
+            }
+        } else {
+            if (_questionCount < reponseQuestions.count) {
+                responseTimer = [NSTimer scheduledTimerWithTimeInterval:10 target:self selector:@selector(notifTimerInvoked) userInfo:nil repeats:false];
+                weakSelf.questionCount ++;
+            }
+        }
+        
+    }];
+    
+    //    if (!([_colorChooser selectedSegmentIndex] == 3 || [_colorChooser selectedSegmentIndex] == 1)) {
+    [notification setTitleColor:[UIColor whiteColor]];
+    [notification setSubtitleColor:[UIColor whiteColor]];
+    //    }
+    //
+    //    switch ([_animationType selectedSegmentIndex]) {
+    //        case 0:
+    //            [notification setAnimationType:MPGNotificationAnimationTypeLinear];
+    //            break;
+    //
+    //        case 1:
+    //            [notification setAnimationType:MPGNotificationAnimationTypeDrop];
+    //            break;
+    //
+    //        case 2:
+    [notification setAnimationType:MPGNotificationAnimationTypeSnap];
+    //            break;
+    //
+    //        default:
+    //            break;
+    //    }
+    //
+    [notification show];
+    //    [_showNotificationButton setEnabled:NO];
 }
 
 @end
